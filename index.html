@@ -1,810 +1,1438 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<meta name="theme-color" content="#071a21">
-<meta name="description" content="Lucas Agora — serviços, empresas e profissionais de Lucas do Rio Verde conectados em um só lugar.">
-<link rel="manifest" href="manifest.json">
-<title>Lucas Agora</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>IG Petiscaria | Petiscos, peixes e combos</title>
+  <meta name="description" content="IG Petiscaria - Petiscos, peixes e combos para sua resenha perfeita em Lucas do Rio Verde - MT." />
+  <style>
+    :root{
+      --bg:#090909;
+      --bg2:#111111;
+      --card:#141414;
+      --card2:#1a1a1a;
+      --text:#f4f4f4;
+      --muted:#b7b7b7;
+      --line:#2a2a2a;
+      --orange:#ff9f1c;
+      --orange-2:#ff7b00;
+      --green:#25d366;
+      --shadow:0 10px 30px rgba(0,0,0,.35);
+      --radius:20px;
+      --max:1200px;
+    }
 
-<style>
-:root{
-  --bg:#06161b;
-  --bg2:#082229;
-  --surface:#0d252c;
-  --surface2:#12313a;
-  --surface3:#173d46;
-  --line:#28505a;
-  --text:#f7fbf8;
-  --muted:#9db9b7;
-  --green:#50d39a;
-  --green2:#2fb879;
-  --blue:#67b7d6;
-  --gold:#e8c96a;
-  --orange:#f2a85f;
-  --red:#ff7474;
-  --shadow:0 18px 50px rgba(0,0,0,.22);
-}
-*{box-sizing:border-box}
-html{background:var(--bg)}
-body{
-  margin:0;
-  min-height:100vh;
-  color:var(--text);
-  font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;
-  background:
-    radial-gradient(circle at 8% -8%,rgba(80,211,154,.18),transparent 30%),
-    radial-gradient(circle at 100% 15%,rgba(103,183,214,.12),transparent 28%),
-    linear-gradient(180deg,#06161b 0%,#071c22 42%,#06161b 100%);
-}
-body:before{
-  content:"";
-  position:fixed;
-  inset:0;
-  pointer-events:none;
-  opacity:.16;
-  background:
-    repeating-linear-gradient(160deg,transparent 0 44px,rgba(255,255,255,.025) 45px 46px),
-    repeating-linear-gradient(20deg,transparent 0 80px,rgba(80,211,154,.025) 81px 82px);
-}
-button,input,textarea,select{font:inherit}
-button{cursor:pointer}
-.app{
-  position:relative;
-  width:min(100%,500px);
-  min-height:100vh;
-  margin:auto;
-  padding-bottom:100px;
-}
-header{
-  position:sticky;
-  top:0;
-  z-index:30;
-  padding:12px 16px;
-  background:rgba(6,22,27,.9);
-  backdrop-filter:blur(18px);
-  border-bottom:1px solid rgba(255,255,255,.06);
-}
-.brand{display:flex;justify-content:space-between;align-items:center;gap:12px}
-.logo{display:flex;align-items:center;gap:11px;min-width:0}
-.logoText{display:flex;flex-direction:column;line-height:1.12;min-width:0}
-.logoText strong{font-size:18px;letter-spacing:-.2px;white-space:nowrap}
-.logoText small{font-size:10px;color:#89aaa7;margin-top:4px;letter-spacing:.15px}
-.mark{
-  position:relative;
-  flex:0 0 42px;
-  width:42px;height:42px;
-  border-radius:14px;
-  display:grid;place-items:center;
-  color:#042016;
-  font-weight:950;
-  background:linear-gradient(145deg,#72e3b0 0%,#4dcc98 52%,#7cc7df 100%);
-  box-shadow:0 8px 24px rgba(80,211,154,.18);
-  overflow:hidden;
-}
-.mark:after{
-  content:"";
-  position:absolute;
-  width:48px;height:14px;
-  left:-3px;bottom:-6px;
-  border-radius:50%;
-  border:2px solid rgba(255,255,255,.48);
-  transform:rotate(-9deg);
-}
-.badge{
-  flex:0 0 auto;
-  border:1px solid rgba(80,211,154,.28);
-  background:rgba(80,211,154,.07);
-  border-radius:999px;
-  padding:7px 9px;
-  color:#bdf8d8;
-  font-size:10px;
-  font-weight:850;
-  letter-spacing:.4px;
-}
-.badge.err{color:#ffd0d0;border-color:rgba(255,116,116,.35);background:rgba(255,116,116,.08)}
-main{padding:16px}
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      scroll-behavior:smooth;
+    }
 
-.hero,.card,.authBox,.plan{
-  border:1px solid rgba(255,255,255,.07);
-  border-radius:24px;
-  box-shadow:var(--shadow);
-}
-.hero{
-  position:relative;
-  overflow:hidden;
-  padding:22px 18px 18px;
-  background:
-    radial-gradient(circle at 100% 0,rgba(232,201,106,.12),transparent 34%),
-    linear-gradient(145deg,rgba(80,211,154,.11),rgba(103,183,214,.06)),
-    var(--surface);
-}
-.hero:before{
-  content:"";
-  position:absolute;
-  left:-14%;right:-14%;bottom:-53px;height:105px;
-  border:2px solid rgba(103,183,214,.18);
-  border-radius:50%;
-  transform:rotate(-5deg);
-}
-.hero:after{
-  content:"";
-  position:absolute;
-  left:-20%;right:-20%;bottom:-68px;height:113px;
-  border:2px solid rgba(80,211,154,.14);
-  border-radius:50%;
-  transform:rotate(4deg);
-}
-.hero>*{position:relative;z-index:1}
-.cityEyebrow{
-  display:flex;
-  align-items:center;
-  gap:7px;
-  color:#b9efd4;
-  font-weight:850;
-  font-size:10px;
-  letter-spacing:.85px;
-  text-transform:uppercase;
-}
-.cityEyebrow .pin{
-  width:8px;height:8px;border-radius:50%;
-  background:var(--gold);
-  box-shadow:0 0 0 4px rgba(232,201,106,.1);
-}
-.hero h1{
-  margin:13px 0 9px;
-  font-size:31px;
-  line-height:1.03;
-  letter-spacing:-1.05px;
-}
-.hero p{margin:0;color:#abc0c0;font-size:14px;line-height:1.55}
-.localLine{
-  display:flex;
-  flex-wrap:wrap;
-  gap:7px;
-  margin-top:15px;
-}
-.localChip{
-  padding:6px 9px;
-  border-radius:999px;
-  border:1px solid rgba(255,255,255,.08);
-  background:rgba(255,255,255,.035);
-  color:#cce0de;
-  font-size:10px;
-  font-weight:750;
-}
-.roleGrid,.grid2{display:grid;grid-template-columns:1fr 1fr;gap:10px}
-.roleGrid{margin-top:17px}
-.role,.cat{
-  position:relative;
-  color:var(--text);
-  text-align:left;
-  border:1px solid var(--line);
-  transition:transform .15s ease,border-color .15s ease,background .15s ease;
-}
-.role:active,.cat:active{transform:scale(.985)}
-.role{
-  min-height:128px;
-  border-radius:19px;
-  padding:15px;
-  background:linear-gradient(160deg,#173740,#102a32);
-}
-.role:before{
-  content:"";
-  position:absolute;
-  top:0;left:0;right:0;height:3px;
-  border-radius:19px 19px 0 0;
-  background:linear-gradient(90deg,var(--green),var(--blue));
-  opacity:.85;
-}
-.role span,.cat span{display:block;font-size:25px;margin-bottom:8px}
-.role b{font-size:15px}
-.role small,.cat small{color:var(--muted);line-height:1.35}
-.roleHint{display:block;margin-top:7px;color:#74dbad!important;font-size:10px!important;font-weight:800}
-.section{margin-top:18px}
-.sectionTitle{
-  display:flex;justify-content:space-between;align-items:flex-end;gap:10px;
-  margin:0 2px 10px;
-}
-.sectionTitle h2{margin:0;font-size:17px;letter-spacing:-.2px}
-.sectionTitle small{color:var(--muted);font-size:11px}
-.sectionEyebrow{
-  font-size:10px;
-  color:#75d7ac;
-  font-weight:850;
-  text-transform:uppercase;
-  letter-spacing:.6px;
-  margin-bottom:4px;
-}
-.localFeatures{
-  display:grid;
-  grid-template-columns:1fr;
-  gap:9px;
-}
-.featureCard{
-  display:flex;
-  align-items:center;
-  gap:12px;
-  padding:13px 14px;
-  border-radius:18px;
-  border:1px solid rgba(255,255,255,.06);
-  background:linear-gradient(145deg,rgba(255,255,255,.028),rgba(80,211,154,.025)),var(--surface);
-}
-.featureIcon{
-  width:38px;height:38px;border-radius:13px;flex:0 0 38px;
-  display:grid;place-items:center;
-  background:#153941;
-  border:1px solid #24515a;
-  font-size:18px;
-}
-.featureCard b{display:block;font-size:13px;margin-bottom:3px}
-.featureCard small{display:block;color:var(--muted);line-height:1.4}
-.citySignature{
-  margin-top:13px;
-  padding:13px 14px;
-  border-radius:18px;
-  border:1px solid rgba(232,201,106,.16);
-  background:linear-gradient(90deg,rgba(232,201,106,.055),rgba(80,211,154,.045));
-}
-.citySignature b{font-size:12px;color:#f3dfa2}
-.citySignature div{margin-top:4px;color:#9fbab8;font-size:11px;line-height:1.5}
+    body{
+      font-family: Arial, Helvetica, sans-serif;
+      background:
+        radial-gradient(circle at top right, rgba(255,123,0,.08), transparent 25%),
+        linear-gradient(180deg, #050505 0%, #0b0b0b 100%);
+      color:var(--text);
+    }
 
-.card,.authBox,.plan{
-  background:linear-gradient(145deg,rgba(80,211,154,.035),rgba(103,183,214,.02)),var(--surface);
-  padding:17px;
-  margin-bottom:11px;
-}
-.formCard{position:relative;overflow:hidden}
-.formCard:before{
-  content:"";
-  position:absolute;left:0;top:0;bottom:0;width:3px;
-  background:linear-gradient(180deg,var(--green),var(--blue));
-}
-.formIntro{
-  margin:-2px 0 15px;
-  padding:11px 12px;
-  border-radius:15px;
-  background:#0a1f25;
-  border:1px solid #1f444d;
-  color:#b7cecc;
-  font-size:12px;
-  line-height:1.5;
-}
-.field{margin-bottom:13px}
-label{
-  display:block;
-  font-size:11px;
-  font-weight:800;
-  color:#c9ddda;
-  margin-bottom:6px;
-  letter-spacing:.15px;
-}
-input,textarea,select{
-  width:100%;
-  border:1px solid #254b54;
-  background:#071b21;
-  color:var(--text);
-  border-radius:15px;
-  padding:13px 14px;
-  outline:none;
-  transition:border-color .15s ease,box-shadow .15s ease;
-}
-textarea{min-height:100px;resize:vertical}
-input:focus,textarea:focus,select:focus{
-  border-color:var(--green);
-  box-shadow:0 0 0 3px rgba(80,211,154,.08);
-}
-::placeholder{color:#6f918f}
-.btn{
-  width:100%;
-  border:0;
-  border-radius:15px;
-  padding:14px 15px;
-  font-weight:900;
-  letter-spacing:.1px;
-  background:linear-gradient(135deg,#62dda8,#37c286);
-  color:#032218;
-  box-shadow:0 9px 24px rgba(47,184,121,.14);
-}
-.btn.secondary{
-  background:#14323a;
-  color:#d7e8e5;
-  border:1px solid #2a5660;
-  box-shadow:none;
-}
-.btn.blue{
-  background:linear-gradient(135deg,#72c0dc,#4fa9c9);
-  color:#04212a;
-}
-.btn.red{background:linear-gradient(135deg,#ff8c8c,#ff6f6f);color:#381010}
-.btn:disabled{opacity:.55;cursor:not-allowed}
-.row{display:flex;gap:8px}.row .btn{flex:1}
-.small{font-size:12px}.muted{color:var(--muted)}
-.hidden{display:none!important}
-.sep{height:1px;background:var(--line);margin:13px 0}
+    a{
+      color:inherit;
+      text-decoration:none;
+    }
 
-.cat{
-  min-height:115px;
-  border-radius:19px;
-  padding:14px;
-  background:#102a32;
-}
-.cat.active{
-  outline:none;
-  border-color:#56d7a0;
-  background:linear-gradient(145deg,rgba(80,211,154,.11),rgba(103,183,214,.04)),#112d34;
-  box-shadow:0 0 0 2px rgba(80,211,154,.12);
-}
-.cat.active:after{
-  content:"✓";
-  position:absolute;
-  top:9px;right:10px;
-  width:20px;height:20px;border-radius:50%;
-  display:grid;place-items:center;
-  background:var(--green);
-  color:#062219;
-  font-size:11px;font-weight:950;
-}
+    img{
+      max-width:100%;
+      display:block;
+    }
 
-.privacyNotice{
-  display:flex;
-  align-items:flex-start;
-  gap:10px;
-  padding:12px;
-  margin-bottom:13px;
-  border-radius:16px;
-  border:1px solid rgba(80,211,154,.18);
-  background:rgba(80,211,154,.055);
-  color:#c7ddd9;
-  font-size:11px;
-  line-height:1.5;
-}
-.privacyIcon{
-  width:30px;height:30px;border-radius:10px;flex:0 0 30px;
-  display:grid;place-items:center;
-  background:#153a31;
-  color:#9af0c7;
-}
+    .container{
+      width:min(100% - 32px, var(--max));
+      margin:0 auto;
+    }
 
-.request{
-  border-left:4px solid var(--blue);
-  background:linear-gradient(145deg,rgba(255,255,255,.018),rgba(103,183,214,.025)),var(--surface);
-  border-radius:19px;
-  padding:15px;
-  margin-bottom:10px;
-  border-top:1px solid rgba(255,255,255,.055);
-  border-right:1px solid rgba(255,255,255,.055);
-  border-bottom:1px solid rgba(255,255,255,.055);
-}
-.request.urgent{border-left-color:var(--orange)}
-.request h3{margin:6px 0 8px;font-size:15px;line-height:1.35}
-.meta{font-size:12px;color:var(--muted);line-height:1.55}
-.tags{display:flex;gap:6px;flex-wrap:wrap;margin-top:9px}
-.tag{
-  font-size:10px;
-  background:#12323a;
-  border:1px solid #25515b;
-  color:#c8dcda;
-  border-radius:999px;
-  padding:5px 8px;
-}
-.offer{
-  background:#081e24;
-  border:1px solid #244a54;
-  border-radius:17px;
-  padding:13px;
-  margin-top:10px;
-}
-.offerTop{display:flex;justify-content:space-between;gap:12px}
-.offerTop b:last-child{color:#7ce6b4}
-.contactBox{
-  margin-top:12px;
-  background:#081d22;
-  border:1px solid #28515a;
-  border-radius:17px;
-  padding:13px;
-}
-.contactBox b{display:block;margin-bottom:7px;font-size:15px}
-.contactLine{font-size:12px;line-height:1.7;color:#d6e5e2;word-break:break-word}
-.actionGrid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:12px}
-.actionGrid .btn{padding:12px 8px}
-.statusChosen{color:#f0cf73}
-.statusDone{color:#85e8b8}
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap:10px;
+      padding:14px 22px;
+      border-radius:999px;
+      border:none;
+      cursor:pointer;
+      font-weight:700;
+      transition:.25s ease;
+      text-decoration:none;
+    }
 
-.businessHero{
-  background:
-    radial-gradient(circle at 100% 0,rgba(80,211,154,.11),transparent 36%),
-    var(--surface);
-}
-.businessKicker{font-size:10px;text-transform:uppercase;letter-spacing:.65px;color:#75d8ad;font-weight:900}
-.businessHero h2{margin:5px 0 5px;font-size:22px}
-.metrics{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
-.metric{
-  min-height:78px;
-  background:#0b2228;
-  border:1px solid #244c55;
-  border-radius:16px;
-  padding:11px;
-}
-.metric b{display:block;font-size:20px;margin-bottom:3px}
-.metric small{color:#8facaa;font-size:10px}
+    .btn:hover{
+      transform:translateY(-2px);
+    }
 
-.statusLine{display:flex;justify-content:space-between;align-items:center;gap:12px}
-.switch{width:56px;height:30px;border-radius:999px;border:0;background:#29444a;position:relative;padding:3px}
-.switch:after{content:"";position:absolute;width:24px;height:24px;left:3px;top:3px;background:#eaf7f3;border-radius:50%;transition:.2s}
-.switch.on{background:var(--green2)}
-.switch.on:after{left:29px}
+    .btn-primary{
+      background:linear-gradient(90deg,var(--orange),var(--orange-2));
+      color:#111;
+      box-shadow:0 10px 20px rgba(255,123,0,.25);
+    }
 
-.authTabs{display:grid;grid-template-columns:1fr 1fr;gap:7px;margin-bottom:14px}
-.authTab{
-  border:1px solid #28505a;
-  background:#0e2a31;
-  color:#9fbab8;
-  border-radius:13px;
-  padding:11px;
-}
-.authTab.active{background:#173c45;color:#fff;border-color:#5fcda1}
-.notice{
-  border:1px dashed #315a63;
-  background:#0a2026;
-  border-radius:16px;
-  padding:12px;
-  color:#bfd1cf;
-  font-size:11px;
-  line-height:1.55;
-}
-.price{font-size:25px;font-weight:900;margin:8px 0}
-.plan{position:relative}
-.plan.best{border-color:var(--green)}
-.ribbon{
-  position:absolute;right:12px;top:12px;
-  background:var(--green);color:#042116;
-  border-radius:999px;padding:5px 8px;
-  font-size:9px;font-weight:950;
-}
-.plan ul{padding-left:18px;color:#cbd7d5;font-size:12px;line-height:1.7}
+    .btn-outline{
+      border:1px solid rgba(255,255,255,.16);
+      color:#fff;
+      background:rgba(255,255,255,.03);
+    }
 
-.topback{
-  border:0;
-  background:transparent;
-  color:#9db9b7;
-  padding:2px 0 10px;
-  font-size:12px;
-  font-weight:750;
-}
-.empty{
-  text-align:center;
-  padding:25px 14px;
-  color:#7f9f9d;
-  border:1px dashed #234850;
-  border-radius:17px;
-  background:rgba(255,255,255,.012);
-}
-.toast{
-  position:fixed;
-  bottom:100px;
-  left:50%;
-  transform:translateX(-50%) translateY(18px);
-  width:min(91%,440px);
-  background:#eafff4;
-  color:#063c29;
-  border:1px solid rgba(80,211,154,.35);
-  border-radius:16px;
-  padding:12px 14px;
-  font-weight:850;
-  font-size:12px;
-  opacity:0;
-  pointer-events:none;
-  transition:.25s;
-  z-index:60;
-  box-shadow:0 18px 40px rgba(0,0,0,.25);
-}
-.toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
-.toast.error{background:#fff0f0;color:#761818;border-color:#ffc1c1}
+    .section-title{
+      font-size:clamp(28px,4vw,46px);
+      line-height:1.1;
+      margin-bottom:10px;
+      font-weight:800;
+    }
 
-.bottom{
-  position:fixed;
-  left:50%;bottom:0;
-  transform:translateX(-50%);
-  width:min(100%,500px);
-  z-index:40;
-  background:rgba(5,19,24,.96);
-  backdrop-filter:blur(18px);
-  border-top:1px solid rgba(255,255,255,.07);
-  display:grid;
-  grid-template-columns:repeat(4,1fr);
-  gap:5px;
-  padding:8px 8px calc(8px + env(safe-area-inset-bottom));
-}
-.nav{
-  min-height:54px;
-  background:transparent;
-  border:0;
-  color:#739390;
-  border-radius:15px;
-  padding:7px 4px 6px;
-  font-size:10px;
-  font-weight:750;
-  transition:.15s ease;
-}
-.nav span{display:block;font-size:18px;margin-bottom:3px;filter:saturate(.75)}
-.nav.active{
-  color:#dff7eb;
-  background:linear-gradient(145deg,rgba(80,211,154,.12),rgba(103,183,214,.07));
-  box-shadow:inset 0 0 0 1px rgba(80,211,154,.12);
-}
-.nav.active span{filter:none}
+    .section-subtitle{
+      color:var(--muted);
+      margin-bottom:26px;
+      font-size:16px;
+    }
 
-@media (min-width:700px){
-  body{padding:18px 0}
-  .app{
-    border-radius:28px;
-    overflow:hidden;
-    box-shadow:0 30px 100px rgba(0,0,0,.28);
-    border:1px solid rgba(255,255,255,.06);
-  }
-  header{border-radius:28px 28px 0 0}
-}
-</style>
+    .tag{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      padding:8px 14px;
+      border-radius:999px;
+      background:rgba(255,159,28,.12);
+      color:var(--orange);
+      border:1px solid rgba(255,159,28,.24);
+      font-weight:700;
+      font-size:14px;
+    }
 
+    /* HEADER */
+    header{
+      position:sticky;
+      top:0;
+      z-index:50;
+      backdrop-filter: blur(14px);
+      background:rgba(8,8,8,.88);
+      border-bottom:1px solid rgba(255,255,255,.06);
+    }
+
+    .header-wrap{
+      min-height:84px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:20px;
+    }
+
+    .logo{
+      display:flex;
+      align-items:center;
+      gap:12px;
+      min-width:max-content;
+    }
+
+    .logo-icon{
+      width:52px;
+      height:52px;
+      border-radius:16px;
+      background:linear-gradient(135deg,var(--orange),var(--orange-2));
+      display:grid;
+      place-items:center;
+      font-size:28px;
+      box-shadow:var(--shadow);
+    }
+
+    .logo-text{
+      line-height:1;
+    }
+
+    .logo-text strong{
+      display:block;
+      font-size:30px;
+      color:var(--orange);
+      letter-spacing:.5px;
+    }
+
+    .logo-text span{
+      display:block;
+      font-size:15px;
+      color:#f0c27b;
+      margin-top:2px;
+      letter-spacing:1px;
+    }
+
+    nav{
+      display:flex;
+      align-items:center;
+      gap:26px;
+      flex-wrap:wrap;
+      justify-content:center;
+    }
+
+    nav a{
+      color:#ededed;
+      font-weight:600;
+      position:relative;
+    }
+
+    nav a::after{
+      content:"";
+      position:absolute;
+      left:0;
+      bottom:-8px;
+      width:0;
+      height:2px;
+      background:var(--orange);
+      transition:.2s;
+    }
+
+    nav a:hover::after{
+      width:100%;
+    }
+
+    .header-cta{
+      display:flex;
+      align-items:center;
+      gap:10px;
+    }
+
+    .menu-toggle{
+      display:none;
+      background:transparent;
+      color:#fff;
+      border:1px solid rgba(255,255,255,.1);
+      border-radius:12px;
+      padding:10px 12px;
+      font-size:20px;
+    }
+
+    /* HERO */
+    .hero{
+      padding:56px 0 30px;
+      overflow:hidden;
+    }
+
+    .hero-grid{
+      display:grid;
+      grid-template-columns: 1.1fr .9fr;
+      gap:28px;
+      align-items:center;
+    }
+
+    .hero-copy h1{
+      font-size:clamp(38px,6vw,76px);
+      line-height:.98;
+      font-weight:900;
+      margin:18px 0 20px;
+    }
+
+    .hero-copy h1 .accent{
+      color:var(--orange);
+      display:block;
+    }
+
+    .hero-copy p{
+      font-size:18px;
+      color:#dddddd;
+      max-width:620px;
+      line-height:1.6;
+    }
+
+    .hero-actions{
+      display:flex;
+      gap:14px;
+      margin-top:28px;
+      flex-wrap:wrap;
+    }
+
+    .hero-notes{
+      display:flex;
+      gap:12px;
+      margin-top:30px;
+      flex-wrap:wrap;
+    }
+
+    .hero-note{
+      background:rgba(255,255,255,.04);
+      border:1px solid rgba(255,255,255,.06);
+      color:#fff;
+      padding:10px 14px;
+      border-radius:14px;
+      font-size:14px;
+    }
+
+    .hero-visual{
+      position:relative;
+      min-height:520px;
+      border-radius:28px;
+      background:
+        radial-gradient(circle at top left, rgba(255,159,28,.22), transparent 22%),
+        linear-gradient(160deg, #171717 0%, #0f0f0f 70%, #151515 100%);
+      border:1px solid rgba(255,255,255,.06);
+      box-shadow:var(--shadow);
+      padding:24px;
+      overflow:hidden;
+    }
+
+    .hero-badge{
+      position:absolute;
+      top:18px;
+      right:18px;
+      background:linear-gradient(90deg,var(--orange),var(--orange-2));
+      color:#121212;
+      padding:10px 18px;
+      border-radius:999px;
+      font-weight:800;
+      box-shadow:var(--shadow);
+    }
+
+    .hero-platter{
+      position:absolute;
+      inset:auto 24px 24px 24px;
+      min-height:365px;
+      border-radius:26px;
+      background:
+        linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.02)),
+        radial-gradient(circle at center, rgba(255,159,28,.18), transparent 55%),
+        #1a1a1a;
+      border:1px solid rgba(255,255,255,.06);
+      padding:22px;
+      display:grid;
+      grid-template-columns:repeat(2,1fr);
+      gap:16px;
+    }
+
+    .food-card{
+      border-radius:22px;
+      padding:20px;
+      background:linear-gradient(180deg,#232323,#171717);
+      border:1px solid rgba(255,255,255,.06);
+      display:flex;
+      flex-direction:column;
+      justify-content:space-between;
+      min-height:145px;
+      position:relative;
+      overflow:hidden;
+    }
+
+    .food-card::before{
+      content:"";
+      position:absolute;
+      inset:auto -10px -30px auto;
+      width:130px;
+      height:130px;
+      border-radius:50%;
+      background:radial-gradient(circle, rgba(255,159,28,.22), transparent 68%);
+    }
+
+    .food-card .icon{
+      font-size:32px;
+      margin-bottom:12px;
+    }
+
+    .food-card strong{
+      font-size:24px;
+      margin-bottom:6px;
+    }
+
+    .food-card span{
+      color:var(--muted);
+      line-height:1.4;
+      font-size:14px;
+    }
+
+    .food-card.orange{
+      background:linear-gradient(180deg, rgba(255,123,0,.24), rgba(255,123,0,.08));
+      border-color:rgba(255,159,28,.22);
+    }
+
+    /* FEATURES */
+    .features{
+      padding:18px 0 24px;
+    }
+
+    .feature-grid{
+      display:grid;
+      grid-template-columns:repeat(4,1fr);
+      gap:16px;
+    }
+
+    .feature{
+      background:linear-gradient(180deg,#151515,#101010);
+      border:1px solid rgba(255,255,255,.06);
+      border-radius:20px;
+      padding:22px 18px;
+      box-shadow:var(--shadow);
+    }
+
+    .feature .ficon{
+      font-size:28px;
+      margin-bottom:10px;
+      color:var(--orange);
+    }
+
+    .feature strong{
+      display:block;
+      font-size:18px;
+      margin-bottom:8px;
+    }
+
+    .feature p{
+      color:var(--muted);
+      line-height:1.5;
+      font-size:14px;
+    }
+
+    /* CATEGORIAS */
+    .categories{
+      padding:38px 0 18px;
+    }
+
+    .category-grid{
+      display:grid;
+      grid-template-columns:repeat(4,1fr);
+      gap:18px;
+    }
+
+    .category-card{
+      min-height:210px;
+      border-radius:24px;
+      padding:22px;
+      position:relative;
+      overflow:hidden;
+      background:linear-gradient(180deg,#1e1e1e,#121212);
+      border:1px solid rgba(255,255,255,.06);
+      box-shadow:var(--shadow);
+      display:flex;
+      flex-direction:column;
+      justify-content:flex-end;
+    }
+
+    .category-card::before{
+      content:"";
+      position:absolute;
+      inset:0;
+      background:
+        linear-gradient(180deg, rgba(0,0,0,.1), rgba(0,0,0,.75)),
+        radial-gradient(circle at top right, rgba(255,159,28,.18), transparent 35%);
+    }
+
+    .category-card > *{
+      position:relative;
+      z-index:1;
+    }
+
+    .category-icon{
+      position:absolute;
+      top:18px;
+      right:18px;
+      width:60px;
+      height:60px;
+      border-radius:50%;
+      display:grid;
+      place-items:center;
+      background:rgba(255,159,28,.18);
+      border:1px solid rgba(255,159,28,.2);
+      font-size:28px;
+      z-index:1;
+    }
+
+    .category-card h3{
+      font-size:26px;
+      margin-bottom:8px;
+    }
+
+    .category-card p{
+      color:#d1d1d1;
+      line-height:1.5;
+    }
+
+    /* CARDÁPIO */
+    .menu-section{
+      padding:48px 0 10px;
+    }
+
+    .filters{
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+      margin-bottom:24px;
+    }
+
+    .filter-btn{
+      padding:12px 18px;
+      border-radius:999px;
+      border:1px solid rgba(255,255,255,.08);
+      background:#111;
+      color:#fff;
+      cursor:pointer;
+      font-weight:700;
+      transition:.2s ease;
+    }
+
+    .filter-btn.active,
+    .filter-btn:hover{
+      background:linear-gradient(90deg,var(--orange),var(--orange-2));
+      color:#111;
+      border-color:transparent;
+    }
+
+    .menu-grid{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:18px;
+    }
+
+    .menu-card{
+      background:linear-gradient(180deg,#171717,#111111);
+      border:1px solid rgba(255,255,255,.06);
+      border-radius:24px;
+      overflow:hidden;
+      box-shadow:var(--shadow);
+      display:flex;
+      flex-direction:column;
+    }
+
+    .menu-cover{
+      min-height:180px;
+      padding:20px;
+      display:flex;
+      align-items:flex-start;
+      justify-content:space-between;
+      background:
+        radial-gradient(circle at top right, rgba(255,159,28,.35), transparent 28%),
+        linear-gradient(160deg, #272727 0%, #171717 100%);
+      border-bottom:1px solid rgba(255,255,255,.06);
+    }
+
+    .menu-cover .emoji{
+      font-size:48px;
+    }
+
+    .size-pill{
+      background:linear-gradient(90deg,var(--orange),var(--orange-2));
+      color:#111;
+      font-weight:800;
+      font-size:13px;
+      padding:8px 12px;
+      border-radius:999px;
+      min-width:max-content;
+    }
+
+    .menu-body{
+      padding:18px;
+      display:flex;
+      flex-direction:column;
+      gap:12px;
+      height:100%;
+    }
+
+    .menu-title{
+      font-size:22px;
+      font-weight:800;
+      line-height:1.2;
+    }
+
+    .price{
+      font-size:29px;
+      color:var(--orange);
+      font-weight:900;
+    }
+
+    .menu-desc{
+      color:var(--muted);
+      line-height:1.6;
+      font-size:15px;
+      min-height:72px;
+    }
+
+    .menu-footer{
+      margin-top:auto;
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+    }
+
+    /* COMBOS */
+    .combo-section{
+      padding:52px 0 18px;
+    }
+
+    .combo-grid{
+      display:grid;
+      grid-template-columns:repeat(4,1fr);
+      gap:18px;
+    }
+
+    .combo-card{
+      background:linear-gradient(180deg,#191919,#101010);
+      border-radius:24px;
+      border:1px solid rgba(255,255,255,.06);
+      overflow:hidden;
+      box-shadow:var(--shadow);
+      display:flex;
+      flex-direction:column;
+    }
+
+    .combo-top{
+      min-height:170px;
+      background:
+        radial-gradient(circle at top right, rgba(255,159,28,.35), transparent 28%),
+        linear-gradient(160deg, #2a2a2a 0%, #141414 100%);
+      padding:20px;
+      display:flex;
+      flex-direction:column;
+      justify-content:space-between;
+    }
+
+    .combo-top .big{
+      font-size:52px;
+    }
+
+    .combo-content{
+      padding:18px;
+      display:flex;
+      flex-direction:column;
+      gap:12px;
+      flex:1;
+    }
+
+    .combo-content h3{
+      font-size:24px;
+    }
+
+    .combo-content p{
+      color:var(--muted);
+      line-height:1.55;
+      font-size:15px;
+      min-height:68px;
+    }
+
+    /* DELIVERY */
+    .cta-section{
+      padding:58px 0;
+    }
+
+    .cta-box{
+      background:
+        linear-gradient(180deg, rgba(255,159,28,.12), rgba(255,159,28,.03)),
+        #111;
+      border:1px solid rgba(255,159,28,.18);
+      border-radius:28px;
+      padding:30px;
+      display:grid;
+      grid-template-columns:1.1fr .9fr;
+      gap:24px;
+      box-shadow:var(--shadow);
+    }
+
+    .cta-left h2{
+      font-size:clamp(28px,4vw,48px);
+      line-height:1.05;
+      margin:14px 0;
+    }
+
+    .cta-left p{
+      color:#d3d3d3;
+      line-height:1.7;
+      margin-bottom:20px;
+      font-size:16px;
+    }
+
+    .whats-number{
+      font-size:36px;
+      font-weight:900;
+      color:var(--orange);
+      margin:10px 0 0;
+    }
+
+    .cta-right{
+      display:grid;
+      grid-template-columns:1fr;
+      gap:14px;
+      align-content:center;
+    }
+
+    .info-box{
+      padding:18px 20px;
+      border-radius:18px;
+      background:#161616;
+      border:1px solid rgba(255,255,255,.06);
+    }
+
+    .info-box strong{
+      display:block;
+      margin-bottom:6px;
+      font-size:17px;
+    }
+
+    .info-box span{
+      color:var(--muted);
+      line-height:1.5;
+      font-size:14px;
+    }
+
+    /* CONTATO */
+    .contact{
+      padding:20px 0 56px;
+    }
+
+    .contact-grid{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:18px;
+    }
+
+    .contact-card{
+      padding:22px;
+      border-radius:22px;
+      background:#121212;
+      border:1px solid rgba(255,255,255,.06);
+      box-shadow:var(--shadow);
+    }
+
+    .contact-card h3{
+      margin-bottom:10px;
+      font-size:22px;
+    }
+
+    .contact-card p,
+    .contact-card a{
+      color:var(--muted);
+      line-height:1.7;
+      font-size:15px;
+    }
+
+    /* FOOTER */
+    footer{
+      border-top:1px solid rgba(255,255,255,.06);
+      padding:26px 0 34px;
+      background:#090909;
+    }
+
+    .footer-wrap{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:20px;
+      flex-wrap:wrap;
+    }
+
+    .footer-links{
+      display:flex;
+      gap:18px;
+      flex-wrap:wrap;
+      color:#d2d2d2;
+    }
+
+    .copy{
+      color:#949494;
+      font-size:14px;
+    }
+
+    /* MOBILE */
+    @media (max-width: 1080px){
+      .hero-grid,
+      .cta-box{
+        grid-template-columns:1fr;
+      }
+
+      .feature-grid{
+        grid-template-columns:repeat(2,1fr);
+      }
+
+      .category-grid{
+        grid-template-columns:repeat(2,1fr);
+      }
+
+      .menu-grid{
+        grid-template-columns:repeat(2,1fr);
+      }
+
+      .combo-grid{
+        grid-template-columns:repeat(2,1fr);
+      }
+
+      .contact-grid{
+        grid-template-columns:1fr;
+      }
+    }
+
+    @media (max-width: 860px){
+      nav{
+        display:none;
+        width:100%;
+        flex-direction:column;
+        align-items:flex-start;
+        padding-top:14px;
+      }
+
+      nav.open{
+        display:flex;
+      }
+
+      .header-wrap{
+        flex-wrap:wrap;
+        padding:14px 0;
+      }
+
+      .header-cta{
+        margin-left:auto;
+      }
+
+      .menu-toggle{
+        display:block;
+      }
+    }
+
+    @media (max-width: 640px){
+      .container{
+        width:min(100% - 22px, var(--max));
+      }
+
+      .hero{
+        padding-top:30px;
+      }
+
+      .hero-visual{
+        min-height:430px;
+      }
+
+      .hero-platter{
+        grid-template-columns:1fr;
+        min-height:auto;
+      }
+
+      .feature-grid,
+      .category-grid,
+      .menu-grid,
+      .combo-grid{
+        grid-template-columns:1fr;
+      }
+
+      .hero-actions{
+        flex-direction:column;
+        align-items:stretch;
+      }
+
+      .btn{
+        width:100%;
+      }
+
+      .cta-box{
+        padding:22px;
+      }
+
+      .whats-number{
+        font-size:28px;
+      }
+
+      .section-title{
+        font-size:34px;
+      }
+    }
+  </style>
 </head>
 <body>
-<div class="app">
-<header>
-  <div class="brand">
-    <div class="logo">
-      <div class="mark">LA</div>
-      <div class="logoText">
-        <strong>Lucas Agora</strong>
-        <small>Lucas do Rio Verde • MT</small>
-      </div>
-    </div>
-    <div class="badge ok" id="headerBadge">V6 • BETA</div>
-  </div>
-</header>
-<main>
-<section id="home">
-  <div class="hero">
-    <div class="cityEyebrow"><span class="pin"></span> FEITO PARA LUCAS DO RIO VERDE</div>
-    <h1>O que você precisa em Lucas agora?</h1>
-    <p>Publique seu pedido e receba propostas de empresas e profissionais da cidade. Você compara e escolhe quem vai te atender.</p>
-
-    <div class="localLine">
-      <span class="localChip">📍 Lucas do Rio Verde • MT</span>
-      <span class="localChip">⚡ Pedidos locais</span>
-      <span class="localChip">🤝 Negócios da cidade</span>
-    </div>
-
-    <div class="roleGrid">
-      <button class="role" data-mode="client">
-        <span>🙋‍♂️</span>
-        <b>Preciso de um serviço</b><br>
-        <small>Publique o que precisa e receba propostas.</small>
-        <small class="roleHint">ENTRAR COMO CLIENTE →</small>
-      </button>
-      <button class="role" data-mode="business">
-        <span>🏪</span>
-        <b>Tenho uma empresa</b><br>
-        <small>Receba pedidos e conquiste clientes locais.</small>
-        <small class="roleHint">ABRIR PAINEL →</small>
-      </button>
-    </div>
-  </div>
-
-  <div class="section">
-    <div class="sectionTitle">
-      <div><div class="sectionEyebrow">Lucas conectado</div><h2>Um app pensado pra cidade</h2></div>
-      <small>local de verdade</small>
-    </div>
-
-    <div class="localFeatures">
-      <div class="featureCard">
-        <div class="featureIcon">📍</div>
-        <div><b>Pedido perto de você</b><small>Bairro, urgência e necessidade aparecem direto para empresas da cidade.</small></div>
-      </div>
-      <div class="featureCard">
-        <div class="featureIcon">💬</div>
-        <div><b>Propostas no mesmo lugar</b><small>Preço, prazo e mensagem organizados para você comparar sem correria.</small></div>
-      </div>
-      <div class="featureCard">
-        <div class="featureIcon">🔒</div>
-        <div><b>Seu endereço fica protegido</b><small>Telefone e endereço só aparecem para a empresa que você escolher.</small></div>
-      </div>
-    </div>
-
-    <div class="citySignature">
-      <b>🌱 Tecnologia local, com a energia de Lucas</b>
-      <div>Uma plataforma para aproximar moradores, profissionais e empresas de Lucas do Rio Verde — do Centro aos bairros, sem complicação.</div>
-    </div>
-  </div>
-</section>
-<section id="auth" class="hidden">
- <button class="topback" data-go="home">← Voltar</button><div class="authBox"><div class="authTabs"><button id="tabLogin" class="authTab active" data-auth-mode="login">Entrar</button><button id="tabRegister" class="authTab" data-auth-mode="register">Criar conta</button></div><div id="registerFields" class="hidden"><div class="field"><label>Seu nome / nome responsável</label><input id="authName" placeholder="Seu nome"></div><div class="field"><label>Começar no modo</label><select id="authRole" disabled><option value="client">Cliente</option><option value="business">Empresa / profissional</option></select></div></div><div class="field"><label>E-mail</label><input id="authEmail" type="email" autocomplete="email" placeholder="voce@email.com"></div><div class="field"><label>Senha</label><input id="authPassword" type="password" autocomplete="current-password" placeholder="mínimo 6 caracteres"></div><button id="authAction" class="btn">ENTRAR</button><div class="notice" style="margin-top:12px">Uma conta só, dois lados da cidade: você pode pedir serviços e também cadastrar sua empresa quando quiser.</div></div>
-</section>
-<section id="client" class="hidden">
-  <button class="topback" data-go="home">← Voltar para o início</button>
-
-  <div class="sectionTitle">
-    <div><div class="sectionEyebrow">Pedido local</div><h2>Do que você precisa?</h2></div>
-    <small id="clientHello"></small>
-  </div>
-
-  <div class="grid2">
-    <button class="cat active" data-cat="Casa"><span>🏠</span><b>Casa</b><br><small>Elétrica, hidráulica...</small></button>
-    <button class="cat" data-cat="Veículo"><span>🚗</span><b>Veículo</b><br><small>Mecânico, guincho...</small></button>
-    <button class="cat" data-cat="Comida"><span>🍕</span><b>Comida</b><br><small>Entrega e ofertas</small></button>
-    <button class="cat" data-cat="Tecnologia"><span>💻</span><b>Tecnologia</b><br><small>PC, celular, sites...</small></button>
-    <button class="cat" data-cat="Beleza"><span>💈</span><b>Beleza</b><br><small>Barbearia, salão...</small></button>
-    <button class="cat" data-cat="Outros"><span>➕</span><b>Outros</b><br><small>Qualquer necessidade</small></button>
-  </div>
-
-  <div class="card formCard" style="margin-top:12px">
-    <div class="formIntro">📍 O pedido será publicado para empresas e profissionais de Lucas do Rio Verde. Quanto mais claro você for, melhores tendem a ser as propostas.</div>
-
-    <div class="field">
-      <label>O que você precisa?</label>
-      <textarea id="need" placeholder="Conte rapidamente o que aconteceu ou o que você procura."></textarea>
-    </div>
-
-    <div class="field">
-      <label>Quando precisa?</label>
-      <select id="urgency"><option>Agora</option><option>Hoje</option><option>Esta semana</option><option>Só orçamento</option></select>
-    </div>
-
-    <div class="field">
-      <label>Bairro em Lucas do Rio Verde</label>
-      <input id="bairro" placeholder="Ex.: Parque das Emas">
-    </div>
-
-    <div class="field">
-      <label>Telefone / WhatsApp</label>
-      <input id="clientPhone" inputmode="tel" placeholder="Ex.: (65) 99999-9999">
-    </div>
-
-    <div class="field">
-      <label>Endereço completo</label>
-      <input id="clientAddress" placeholder="Rua, número e complemento">
-    </div>
-
-    <div class="field">
-      <label>Ponto de referência <span class="muted">(opcional)</span></label>
-      <input id="clientReference" placeholder="Ex.: casa de esquina, perto do mercado">
-    </div>
-
-    <div class="privacyNotice">
-      <div class="privacyIcon">🔒</div>
-      <div><b>Seu endereço não fica público.</b><br>Enquanto o pedido estiver aberto, as empresas veem apenas o bairro. Telefone e endereço completo só são liberados para a empresa que você escolher.</div>
-    </div>
-
-    <button class="btn" id="publishBtn">PUBLICAR PEDIDO EM LUCAS</button>
-  </div>
-
-  <div class="section">
-    <div class="sectionTitle">
-      <div><div class="sectionEyebrow">Acompanhe por aqui</div><h2>Meus pedidos</h2></div>
-      <small id="myCount">0</small>
-    </div>
-    <div id="myRequests"></div>
-  </div>
-</section>
-<section id="business" class="hidden">
-  <button class="topback" data-go="home">← Voltar para o início</button>
-
-  <div id="businessSetup" class="hidden">
-    <div class="sectionTitle">
-      <div><div class="sectionEyebrow">Negócio local</div><h2>Cadastre sua empresa</h2></div>
-      <small>Lucas do Rio Verde</small>
-    </div>
-
-    <div class="card formCard">
-      <div class="formIntro">🏪 Crie seu perfil comercial para começar a receber pedidos de moradores da cidade.</div>
-      <div class="field"><label>Nome da empresa / profissional</label><input id="bizName" placeholder="Ex.: Carlos Elétrica"></div>
-      <div class="field"><label>Categoria</label><input id="bizCategory" placeholder="Ex.: Eletricista"></div>
-      <div class="field"><label>Bairro</label><input id="bizNeighborhood" placeholder="Ex.: Centro"></div>
-      <div class="field"><label>WhatsApp comercial</label><input id="bizPhone" placeholder="(65) 99999-9999"></div>
-      <button class="btn" id="createBusinessBtn">CRIAR PERFIL COMERCIAL</button>
-    </div>
-  </div>
-
-  <div id="businessPanel" class="hidden">
-    <div class="card businessHero">
-      <div class="statusLine">
-        <div>
-          <div class="businessKicker">Painel da empresa • Lucas do Rio Verde</div>
-          <h2 id="bizTitle">—</h2>
-          <div class="small" id="availabilityText">🟢 Disponível para novos pedidos</div>
+  <header>
+    <div class="container header-wrap">
+      <a href="#inicio" class="logo">
+        <div class="logo-icon">🐟</div>
+        <div class="logo-text">
+          <strong>IG</strong>
+          <span>PETISCARIA</span>
         </div>
-        <button id="availabilitySwitch" class="switch on" aria-label="Alternar disponibilidade"></button>
+      </a>
+
+      <button class="menu-toggle" id="menuToggle">☰</button>
+
+      <nav id="mainNav">
+        <a href="#inicio">Início</a>
+        <a href="#categorias">Categorias</a>
+        <a href="#cardapio">Cardápio</a>
+        <a href="#combos">Combos</a>
+        <a href="#delivery">Delivery</a>
+        <a href="#contato">Contato</a>
+      </nav>
+
+      <div class="header-cta">
+        <a class="btn btn-primary" href="https://wa.me/5566992495524?text=Olá!%20Quero%20fazer%20um%20pedido%20na%20IG%20Petiscaria." target="_blank">
+          Pedir no WhatsApp
+        </a>
       </div>
     </div>
+  </header>
 
-    <div class="metrics">
-      <div class="metric"><b id="metricRequests">0</b><small>Pedidos locais</small></div>
-      <div class="metric"><b id="metricResponses">0</b><small>Respondidos</small></div>
-      <div class="metric"><b id="metricOpen">0</b><small>Disponíveis</small></div>
-    </div>
+  <main>
+    <section class="hero" id="inicio">
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <span class="tag">Mais que petiscos, bons momentos</span>
+          <h1>
+            Petiscos, peixes e combos para sua
+            <span class="accent">resenha perfeita</span>
+          </h1>
+          <p>
+            Delivery em <strong>Lucas do Rio Verde - MT</strong>.  
+            Sabor que conquista, crocante por fora, suculento por dentro.
+            Um cardápio pensado para quem quer comer bem e compartilhar bons momentos.
+          </p>
 
-    <div class="section">
-      <div class="sectionTitle">
-        <div><div class="sectionEyebrow">Oportunidades locais</div><h2>Pedidos da cidade</h2></div>
-        <small>atualiza automático</small>
+          <div class="hero-actions">
+            <a href="#cardapio" class="btn btn-primary">Ver Cardápio</a>
+            <a href="https://wa.me/5566992495524?text=Olá!%20Quero%20fazer%20um%20pedido%20na%20IG%20Petiscaria." target="_blank" class="btn btn-outline">Fazer Pedido</a>
+          </div>
+
+          <div class="hero-notes">
+            <div class="hero-note">🐟 Peixes frescos</div>
+            <div class="hero-note">🍟 Porções generosas</div>
+            <div class="hero-note">🚚 Delivery rápido</div>
+            <div class="hero-note">👥 Combos para compartilhar</div>
+          </div>
+        </div>
+
+        <div class="hero-visual">
+          <div class="hero-badge">Peça no WhatsApp</div>
+
+          <div class="hero-platter">
+            <div class="food-card orange">
+              <div class="icon">🐟</div>
+              <strong>Peixes</strong>
+              <span>Filé de tambatinga, pintado, tilápia e combos especiais.</span>
+            </div>
+
+            <div class="food-card">
+              <div class="icon">🍗</div>
+              <strong>Frango</strong>
+              <span>Tulipa, filé empanado e combos para a resenha.</span>
+            </div>
+
+            <div class="food-card">
+              <div class="icon">🍟</div>
+              <strong>Porções</strong>
+              <span>Batata com bacon, cebola empanada, calabresa e mais.</span>
+            </div>
+
+            <div class="food-card orange">
+              <div class="icon">🔥</div>
+              <strong>Combos</strong>
+              <span>Opções completas para dividir com a galera e pedir de novo.</span>
+            </div>
+          </div>
+        </div>
       </div>
-      <div id="businessRequests"></div>
-    </div>
+    </section>
 
-    <div class="section">
-      <div class="sectionTitle">
-        <div><div class="sectionEyebrow">Serviços confirmados</div><h2>Atendimentos em andamento</h2></div>
-        <small id="activeCount">0</small>
+    <section class="features">
+      <div class="container feature-grid">
+        <div class="feature">
+          <div class="ficon">🐠</div>
+          <strong>Peixes frescos</strong>
+          <p>Qualidade em todo prato, com sabor que conquista do começo ao fim.</p>
+        </div>
+        <div class="feature">
+          <div class="ficon">🍽️</div>
+          <strong>Porções generosas</strong>
+          <p>Ideal para quem quer uma refeição caprichada ou dividir com alguém.</p>
+        </div>
+        <div class="feature">
+          <div class="ficon">🚚</div>
+          <strong>Entrega rápida</strong>
+          <p>Seu pedido com mais agilidade, direto para Lucas do Rio Verde - MT.</p>
+        </div>
+        <div class="feature">
+          <div class="ficon">👨‍👩‍👧‍👦</div>
+          <strong>Combos para compartilhar</strong>
+          <p>Porque petisco bom fica ainda melhor quando a resenha é em boa companhia.</p>
+        </div>
       </div>
-      <div id="activeJobs"></div>
+    </section>
+
+    <section class="categories" id="categorias">
+      <div class="container">
+        <h2 class="section-title">Nossas Categorias</h2>
+        <p class="section-subtitle">Escolha seu favorito e peça agora.</p>
+
+        <div class="category-grid">
+          <div class="category-card">
+            <div class="category-icon">🐟</div>
+            <h3>Peixes</h3>
+            <p>Filés, ventrechas, tambatinga, pintado, tilápia e combos com muito sabor.</p>
+          </div>
+
+          <div class="category-card">
+            <div class="category-icon">🍗</div>
+            <h3>Frango</h3>
+            <p>Tulipa, filé empanado e combinações perfeitas para comer sozinho ou dividir.</p>
+          </div>
+
+          <div class="category-card">
+            <div class="category-icon">🍟</div>
+            <h3>Porções</h3>
+            <p>Batata frita com bacon, cebola empanada, calabresa acebolada e muito mais.</p>
+          </div>
+
+          <div class="category-card">
+            <div class="category-icon">🔥</div>
+            <h3>Combos</h3>
+            <p>Combos completos para quem quer variedade e uma verdadeira resenha perfeita.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="menu-section" id="cardapio">
+      <div class="container">
+        <h2 class="section-title">Cardápio Completo</h2>
+        <p class="section-subtitle">Todos os itens enviados já organizados no site.</p>
+
+        <div class="filters">
+          <button class="filter-btn active" data-filter="todos">Todos</button>
+          <button class="filter-btn" data-filter="combo">Combos</button>
+          <button class="filter-btn" data-filter="peixe">Peixes</button>
+          <button class="filter-btn" data-filter="frango">Frango</button>
+          <button class="filter-btn" data-filter="porcao">Porções</button>
+        </div>
+
+        <div class="menu-grid" id="menuGrid"></div>
+      </div>
+    </section>
+
+    <section class="combo-section" id="combos">
+      <div class="container">
+        <h2 class="section-title">Combos em Destaque</h2>
+        <p class="section-subtitle">Mais sabor, mais momentos especiais.</p>
+
+        <div class="combo-grid" id="comboGrid"></div>
+      </div>
+    </section>
+
+    <section class="cta-section" id="delivery">
+      <div class="container">
+        <div class="cta-box">
+          <div class="cta-left">
+            <span class="tag">Delivery em Lucas do Rio Verde - MT</span>
+            <h2>Peça agora pelo WhatsApp</h2>
+            <p>
+              Atendimento prático e rápido.  
+              Escolha o item no cardápio, clique em pedir e já fale direto com a empresa.
+            </p>
+
+            <a class="btn btn-primary" href="https://wa.me/5566992495524?text=Olá!%20Vim%20pelo%20site%20da%20IG%20Petiscaria%20e%20quero%20fazer%20um%20pedido." target="_blank">
+              Fazer pedido agora
+            </a>
+
+            <div class="whats-number">(66) 99249-5524</div>
+          </div>
+
+          <div class="cta-right">
+            <div class="info-box">
+              <strong>📍 Atendemos em Lucas do Rio Verde - MT</strong>
+              <span>Seu petisco favorito mais perto de você.</span>
+            </div>
+
+            <div class="info-box">
+              <strong>🕒 Peça sem sair de casa</strong>
+              <span>Com poucos cliques o pedido vai direto para o WhatsApp.</span>
+            </div>
+
+            <div class="info-box">
+              <strong>🍽️ Resenha também se pede por aqui</strong>
+              <span>Combos ideais para família, casal, amigos e aquela resenha de fim de dia.</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="contact" id="contato">
+      <div class="container">
+        <h2 class="section-title">Contato</h2>
+        <p class="section-subtitle">Informações principais para o cliente falar com a empresa.</p>
+
+        <div class="contact-grid">
+          <div class="contact-card">
+            <h3>IG Petiscaria</h3>
+            <p>Sabor em boa companhia.</p>
+          </div>
+
+          <div class="contact-card">
+            <h3>WhatsApp</h3>
+            <p><a target="_blank" href="https://wa.me/5566992495524">(66) 99249-5524</a></p>
+          </div>
+
+          <div class="contact-card">
+            <h3>Localização</h3>
+            <p>Lucas do Rio Verde - MT</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-wrap">
+      <div class="logo">
+        <div class="logo-icon">🐟</div>
+        <div class="logo-text">
+          <strong>IG</strong>
+          <span>PETISCARIA</span>
+        </div>
+      </div>
+
+      <div class="footer-links">
+        <a href="#inicio">Início</a>
+        <a href="#categorias">Categorias</a>
+        <a href="#cardapio">Cardápio</a>
+        <a href="#combos">Combos</a>
+        <a href="#delivery">Delivery</a>
+        <a href="#contato">Contato</a>
+      </div>
+
+      <div class="copy">© 2026 IG Petiscaria. Todos os direitos reservados.</div>
     </div>
-  </div>
-</section>
-<section id="plans" class="hidden"><button class="topback" data-go="business">← Voltar</button><div class="sectionTitle"><h2>Planos</h2><small>MVP</small></div><div class="plan"><h3>Grátis</h3><div class="price">R$ 0</div><ul><li>Perfil básico</li><li>Até 5 respostas/mês futuramente</li><li>Pedidos próximos</li></ul></div><div class="plan best"><div class="ribbon">PRO</div><h3>Pro</h3><div class="price">R$ 49,90 <span class="small muted">/mês</span></div><ul><li>Respostas ilimitadas</li><li>Perfil completo</li><li>Mais destaque</li><li>Catálogo e promoções</li></ul></div></section>
-<section id="account" class="hidden"><button class="topback" data-go="home">← Voltar</button><div class="sectionTitle"><h2>Conta</h2><small id="accountRole"></small></div><div class="card"><div id="accountInfo" class="small muted">Nenhuma conta conectada.</div><button id="logoutBtn" class="btn red hidden" style="margin-top:14px">SAIR DA CONTA</button></div><div class="notice" id="diagnostic">Lucas Agora • plataforma local para conectar moradores e negócios de Lucas do Rio Verde.</div></section>
-</main>
-<nav class="bottom"><button class="nav active" data-nav="home"><span>⌂</span>Início</button><button class="nav" data-nav="client"><span>⌕</span>Pedir</button><button class="nav" data-nav="business"><span>▣</span>Empresa</button><button class="nav" data-nav="account"><span>●</span>Conta</button></nav>
-<div id="toast" class="toast"></div>
-</div>
-<script>
-'use strict';
-const SUPABASE_URL='https://vajlhodqxskozuxxlujv.supabase.co';
-const SUPABASE_KEY='sb_publishable_uT0b4y0Bex1k1QWZoyIfKg_K0pm-yS3';
-const SESSION_KEY='lucas_agora_session_v5';
-let session=null,user=null,profile=null,business=null,pendingMode='client',authMode='login',selectedCategory='Casa',pollBusy=false;
-const $=id=>document.getElementById(id);
-function toast(msg,isError=false){const t=$('toast');t.textContent=msg;t.classList.toggle('error',isError);t.classList.add('show');clearTimeout(window.__toast);window.__toast=setTimeout(()=>t.classList.remove('show'),3200)}
-function show(id,navEl=null){['home','auth','client','business','plans','account'].forEach(x=>$(x).classList.add('hidden'));$(id).classList.remove('hidden');document.querySelectorAll('.nav').forEach(n=>n.classList.remove('active'));if(navEl)navEl.classList.add('active');window.scrollTo({top:0,behavior:'smooth'})}
-function setBadge(text,kind='ok'){const b=$('headerBadge');b.textContent=text;b.classList.remove('ok','err');b.classList.add(kind)}
-function saveSession(s){session=s;if(s)localStorage.setItem(SESSION_KEY,JSON.stringify(s));else localStorage.removeItem(SESSION_KEY)}
-function loadStoredSession(){try{return JSON.parse(localStorage.getItem(SESSION_KEY)||'null')}catch{return null}}
-function errorMessage(data,status){return data?.message||data?.msg||data?.error_description||data?.error||data?.hint||`Erro ${status}`}
-async function rawFetch(path,{method='GET',body=null,headers={},auth=true,retry=true}={}){
- const h={'apikey':SUPABASE_KEY,'Content-Type':'application/json',...headers};
- if(auth&&session?.access_token)h.Authorization=`Bearer ${session.access_token}`;
- let res;
- try{res=await fetch(SUPABASE_URL+path,{method,headers:h,body:body===null?undefined:JSON.stringify(body)})}catch(e){setBadge('SEM CONEXÃO','err');throw new Error('Sem conexão com o Supabase. Verifique sua internet.')}
- const txt=await res.text();let data=null;try{data=txt?JSON.parse(txt):null}catch{data=txt}
- if(res.status===401&&auth&&retry&&session?.refresh_token){const ok=await refreshSession();if(ok)return rawFetch(path,{method,body,headers,auth,retry:false})}
- if(!res.ok)throw new Error(errorMessage(data,res.status));
- setBadge('V6 • BETA','ok');return data
-}
-async function refreshSession(){if(!session?.refresh_token)return false;try{const data=await rawFetch('/auth/v1/token?grant_type=refresh_token',{method:'POST',body:{refresh_token:session.refresh_token},auth:false,retry:false});adoptSession(data);return true}catch{logout(false);return false}}
-function adoptSession(data){if(!data?.access_token)return false;saveSession({access_token:data.access_token,refresh_token:data.refresh_token,expires_in:data.expires_in||3600,expires_at:Date.now()+(data.expires_in||3600)*1000,user:data.user||session?.user||null});user=data.user||session?.user||user;return true}
-async function ensureUser(){if(!session)return false;if(session.expires_at&&Date.now()>session.expires_at-60000)await refreshSession();if(user)return true;try{user=await rawFetch('/auth/v1/user');return !!user}catch{return false}}
-async function signUp(email,password,fullName){const data=await rawFetch('/auth/v1/signup',{method:'POST',body:{email,password,data:{full_name:fullName,role:pendingMode}},auth:false});if(data?.access_token){adoptSession(data);return {signedIn:true}}return {signedIn:false,data}}
-async function signIn(email,password){const data=await rawFetch('/auth/v1/token?grant_type=password',{method:'POST',body:{email,password},auth:false});if(!adoptSession(data))throw new Error('Login não retornou uma sessão válida.');return true}
-async function rest(path,opts={}){return rawFetch('/rest/v1/'+path,opts)}
-async function loadProfile(){if(!await ensureUser())return;const rows=await rest(`profiles?id=eq.${encodeURIComponent(user.id)}&select=*`);profile=Array.isArray(rows)?rows[0]||null:null}
-async function loadBusiness(){if(!await ensureUser())return null;const rows=await rest(`businesses?owner_id=eq.${encodeURIComponent(user.id)}&select=*`);business=Array.isArray(rows)?rows[0]||null:null;return business}
-function setAuthMode(mode){authMode=mode;$('tabLogin').classList.toggle('active',mode==='login');$('tabRegister').classList.toggle('active',mode==='register');$('registerFields').classList.toggle('hidden',mode!=='register');$('authAction').textContent=mode==='login'?'ENTRAR':'CRIAR CONTA';$('authRole').value=pendingMode}
-async function routeMode(mode,navEl=null){pendingMode=mode;if(!session){$('authRole').value=mode;show('auth',navEl);setAuthMode('login');return}if(!await ensureUser()){toast('Sua sessão expirou. Entre novamente.',true);show('auth',navEl);return}if(mode==='client'){show('client',navEl);await loadProfile().catch(()=>{});$('clientHello').textContent=profile?.full_name||user?.user_metadata?.full_name||user?.email||'';await loadMyRequests()}else{show('business',navEl);await loadBusinessPanel()}}
-async function submitAuth(){const btn=$('authAction');const email=$('authEmail').value.trim();const password=$('authPassword').value;try{btn.disabled=true;if(!email||password.length<6)throw new Error('Informe e-mail e senha com pelo menos 6 caracteres.');if(authMode==='register'){const fullName=$('authName').value.trim();if(!fullName)throw new Error('Informe seu nome.');const r=await signUp(email,password,fullName);if(!r.signedIn){toast('Conta criada. Se a confirmação de e-mail estiver ativa, confirme o e-mail e depois entre.');setAuthMode('login');return}toast('Conta criada e conectada.');await loadProfile().catch(()=>{});await routeMode(pendingMode)}else{await signIn(email,password);await loadProfile().catch(()=>{});toast('Login realizado.');await routeMode(pendingMode)}}catch(e){toast(e.message||'Erro no acesso.',true)}finally{btn.disabled=false}}
-function pickCategory(btn){document.querySelectorAll('.cat').forEach(c=>c.classList.remove('active'));btn.classList.add('active');selectedCategory=btn.dataset.cat;const ex={Casa:'Minha tomada queimou e parte da casa ficou sem energia.',Veículo:'Meu carro não está pegando e preciso de ajuda.',Comida:'Quero duas pizzas grandes e refrigerante por até R$100.',Tecnologia:'Meu notebook não liga e preciso de orçamento.',Beleza:'Quero um horário ainda hoje.',Outros:''};$('need').value=ex[selectedCategory]||''}
-async function createRequest(){const btn=$('publishBtn');try{btn.disabled=true;if(!await ensureUser())throw new Error('Entre na sua conta primeiro.');const description=$('need').value.trim(),urgency=$('urgency').value,neighborhood=$('bairro').value.trim(),phone=$('clientPhone').value.trim(),address=$('clientAddress').value.trim(),reference=$('clientReference').value.trim();if(!description||!neighborhood)throw new Error('Descreva o pedido e informe o bairro.');if(!phone)throw new Error('Informe seu telefone/WhatsApp.');if(!address)throw new Error('Informe o endereço completo.');await rest('rpc/create_request_with_contact',{method:'POST',body:{p_category:selectedCategory,p_description:description,p_urgency:urgency,p_neighborhood:neighborhood,p_phone:phone,p_address:address,p_address_reference:reference}});$('need').value='';$('clientReference').value='';toast('Pedido publicado. Seus dados privados só serão liberados para a empresa escolhida.');await loadMyRequests()}catch(e){toast(e.message,true)}finally{btn.disabled=false}}
-async function loadMyRequests(){if(!session||!user)return;try{const requests=await rest(`requests?client_id=eq.${encodeURIComponent(user.id)}&select=*&order=created_at.desc`);$('myCount').textContent=requests.length;const box=$('myRequests');if(!requests.length){box.innerHTML='<div class="empty">Você ainda não publicou nenhum pedido.</div>';return}const cards=[];for(const r of requests){const offers=await rest(`offers?request_id=eq.${encodeURIComponent(r.id)}&select=id,price,eta_minutes,message,status,business_id,created_at&order=created_at.asc`);let names={};const ids=[...new Set(offers.map(o=>o.business_id).filter(Boolean))];if(ids.length){const encoded=ids.map(x=>`"${x}"`).join(',');const bs=await rest(`businesses?id=in.(${encodeURIComponent(encoded)})&select=id,name,rating`);bs.forEach(b=>names[b.id]=b)}cards.push(renderClientRequest(r,offers,names))}box.innerHTML=cards.join('')}catch(e){toast('Erro ao carregar pedidos: '+e.message,true)}}
-function renderClientRequest(r,offers,names){return `<div class="request ${r.urgency==='Agora'?'urgent':''}"><div class="small muted">${esc(r.category)} • ${formatDate(r.created_at)}</div><h3>${esc(r.description)}</h3><div class="meta">📍 ${esc(r.neighborhood)} • ${esc(r.urgency)}</div><div class="tags"><span class="tag">${offers.length} proposta(s)</span><span class="tag">${esc(statusText(r.status))}</span></div>${offers.map(o=>{const b=names[o.business_id]||{};const accepted=o.status==='accepted';return `<div class="offer"><div class="offerTop"><b>${esc(b.name||'Empresa')}</b><b>R$ ${money(o.price)}</b></div><div class="small muted" style="margin-top:5px">⭐ ${esc(b.rating??'5.0')} • ${o.eta_minutes??'—'} min</div><div class="small" style="margin-top:7px">${esc(o.message)}</div>${accepted?'<div class="tag statusChosen" style="margin-top:10px;display:inline-block">✓ Empresa escolhida</div>':''}${r.status==='open'?`<button class="btn acceptOfferBtn" style="margin-top:10px" data-request="${r.id}" data-offer="${o.id}">ESCOLHER ESTA EMPRESA</button>`:''}</div>`}).join('')}</div>`}
-async function acceptOffer(requestId,offerId){try{await rest('rpc/accept_offer',{method:'POST',body:{p_request_id:requestId,p_offer_id:offerId}});toast('Empresa escolhida.');await loadMyRequests()}catch(e){toast(e.message,true)}}
-async function createBusiness(){const btn=$('createBusinessBtn');try{btn.disabled=true;if(!await ensureUser())throw new Error('Entre na sua conta primeiro.');const name=$('bizName').value.trim(),category=$('bizCategory').value.trim()||'Outros',neighborhood=$('bizNeighborhood').value.trim(),phone=$('bizPhone').value.trim();if(!name)throw new Error('Informe o nome da empresa.');const rows=await rest('businesses',{method:'POST',body:{owner_id:user.id,name,category,neighborhood,phone},headers:{Prefer:'return=representation'}});business=Array.isArray(rows)?rows[0]:null;toast('Perfil da empresa criado.');await loadBusinessPanel()}catch(e){toast(e.message,true)}finally{btn.disabled=false}}
-async function loadBusinessPanel(){try{await loadBusiness();const setup=$('businessSetup'),panel=$('businessPanel');if(!business){setup.classList.remove('hidden');panel.classList.add('hidden');return}setup.classList.add('hidden');panel.classList.remove('hidden');$('bizTitle').textContent=business.name;$('availabilitySwitch').classList.toggle('on',!!business.is_available);$('availabilityText').textContent=business.is_available?'🟢 Disponível agora':'⚫ Indisponível';await Promise.all([loadCityRequests(),loadActiveJobs()])}catch(e){toast('Erro no painel da empresa: '+e.message,true)}}
-async function loadCityRequests(){if(!business)return;try{const requests=await rest('requests?status=eq.open&select=*&order=created_at.desc&limit=50');const myOffers=await rest(`offers?business_id=eq.${encodeURIComponent(business.id)}&select=request_id`);const offered=new Set(myOffers.map(x=>x.request_id));$('metricRequests').textContent=requests.length;$('metricResponses').textContent=offered.size;$('metricOpen').textContent=requests.length;const box=$('businessRequests');if(!requests.length){box.innerHTML='<div class="empty">Nenhum pedido aberto neste momento.</div>';return}box.innerHTML=requests.map(r=>`<div class="request ${r.urgency==='Agora'?'urgent':''}">${r.urgency==='Agora'?'<div class="small" style="color:#ffaaaa;font-weight:900">🔴 PRECISA AGORA</div>':''}<h3>${esc(r.description)}</h3><div class="meta">📍 ${esc(r.neighborhood)} • ${esc(r.category)} • ${esc(r.urgency)}</div><button class="btn respondBtn ${offered.has(r.id)?'secondary':''}" style="margin-top:12px" data-request="${r.id}">${offered.has(r.id)?'ATUALIZAR PROPOSTA':'RESPONDER'}</button></div>`).join('')}catch(e){toast('Erro ao carregar pedidos da cidade: '+e.message,true)}}
-async function loadActiveJobs(){if(!business)return;const box=$('activeJobs');try{const accepted=await rest(`offers?business_id=eq.${encodeURIComponent(business.id)}&status=eq.accepted&select=request_id,price,eta_minutes,message`);if(!accepted.length){$('activeCount').textContent='0';box.innerHTML='<div class="empty">Nenhum atendimento em andamento.</div>';return}const ids=[...new Set(accepted.map(x=>x.request_id))];const idFilter=ids.join(',');const requests=await rest(`requests?id=in.(${idFilter})&status=eq.chosen&select=*`);$('activeCount').textContent=String(requests.length);if(!requests.length){box.innerHTML='<div class="empty">Nenhum atendimento em andamento.</div>';return}const privates=await rest(`request_private?request_id=in.(${idFilter})&select=*`);const privateMap=Object.fromEntries(privates.map(x=>[x.request_id,x]));const offerMap=Object.fromEntries(accepted.map(x=>[x.request_id,x]));box.innerHTML=requests.map(r=>renderActiveJob(r,privateMap[r.id],offerMap[r.id])).join('')}catch(e){toast('Erro ao carregar atendimentos: '+e.message,true)}}
-function renderActiveJob(r,p,o){const phone=p?.phone||'';const phoneDigits=phone.replace(/\D/g,'');const wa=phoneDigits.startsWith('55')?phoneDigits:(phoneDigits.length>=10?'55'+phoneDigits:phoneDigits);const mapQuery=encodeURIComponent([p?.address,r.neighborhood,'Lucas do Rio Verde MT'].filter(Boolean).join(', '));return `<div class="request"><div class="small statusChosen" style="font-weight:900">🟡 EM ATENDIMENTO</div><h3>${esc(r.description)}</h3><div class="meta">📍 ${esc(r.neighborhood)} • ${esc(r.category)}</div><div class="contactBox"><b>${esc(p?.client_name||'Cliente')}</b><div class="contactLine">📱 ${esc(phone||'Telefone não disponível')}</div><div class="contactLine">🏠 ${esc(p?.address||'Endereço não disponível')}</div>${p?.address_reference?`<div class="contactLine">📌 ${esc(p.address_reference)}</div>`:''}<div class="contactLine">💰 Proposta aceita: R$ ${money(o?.price)}</div><div class="contactLine">⏱ Previsão informada: ${o?.eta_minutes??'—'} min</div></div><div class="actionGrid"><button class="btn blue whatsappBtn" data-phone="${esc(wa)}">WHATSAPP</button><button class="btn secondary mapBtn" data-map="${mapQuery}">ABRIR NO MAPA</button></div><button class="btn completeJobBtn" style="margin-top:8px" data-request="${r.id}">CONCLUIR ATENDIMENTO</button></div>`}
-async function completeJob(requestId){if(!confirm('Marcar este atendimento como concluído?'))return;try{await rest('rpc/business_complete_request',{method:'POST',body:{p_request_id:requestId}});toast('Atendimento concluído.');await Promise.all([loadCityRequests(),loadActiveJobs()])}catch(e){toast(e.message,true)}}
-function openWhatsApp(phone){if(!phone){toast('Telefone não disponível.',true);return}window.open(`https://wa.me/${phone}`,'_blank','noopener')}
-function openMap(encoded){if(!encoded){toast('Endereço não disponível.',true);return}window.open(`https://www.google.com/maps/search/?api=1&query=${encoded}`,'_blank','noopener')}
-async function respondToRequest(requestId){if(!business?.is_available){toast('Ative sua disponibilidade primeiro.',true);return}const price=prompt('Valor proposto (ex.: 50,00):','50,00');if(price===null)return;const eta=prompt('Tempo estimado em minutos:','20');if(eta===null)return;const message=prompt('Mensagem para o cliente:','Consigo atender. Confirmo o valor final antes do serviço.');if(message===null)return;const p=Number(String(price).replace(',','.')),m=Number(eta);if(!Number.isFinite(p)||p<0||!Number.isFinite(m)||m<0){toast('Valor ou tempo inválido.',true);return}try{await rest('offers?on_conflict=request_id,business_id',{method:'POST',body:{request_id:requestId,business_id:business.id,price:p,eta_minutes:m,message},headers:{Prefer:'resolution=merge-duplicates,return=representation'}});toast('Proposta enviada.');await loadCityRequests()}catch(e){toast(e.message,true)}}
-async function toggleAvailability(){if(!business)return;try{const next=!business.is_available;const rows=await rest(`businesses?id=eq.${encodeURIComponent(business.id)}`,{method:'PATCH',body:{is_available:next},headers:{Prefer:'return=representation'}});business=rows[0]||business;$('availabilitySwitch').classList.toggle('on',!!business.is_available);$('availabilityText').textContent=business.is_available?'🟢 Disponível agora':'⚫ Indisponível';toast(next?'Empresa disponível.':'Empresa pausada.')}catch(e){toast(e.message,true)}}
-function renderAccount(){const info=$('accountInfo'),btn=$('logoutBtn'),role=$('accountRole');if(!session){info.textContent='Você ainda não entrou.';btn.classList.add('hidden');role.textContent='';return}info.innerHTML=`<b>${esc(profile?.full_name||user?.user_metadata?.full_name||user?.email||'Usuário')}</b><br>${esc(user?.email||'')}<br><span class="muted">Pode usar Cliente e Empresa.</span>`;btn.classList.remove('hidden');role.textContent='conta conectada'}
-function logout(showMsg=true){saveSession(null);session=null;user=null;profile=null;business=null;renderAccount();show('home');if(showMsg)toast('Você saiu da conta.')}
-function statusText(s){return ({open:'Aberto',chosen:'Em atendimento',completed:'Concluído',cancelled:'Cancelado'})[s]||s}function formatDate(v){try{return new Date(v).toLocaleString('pt-BR')}catch{return ''}}function money(v){return Number(v||0).toLocaleString('pt-BR',{minimumFractionDigits:2,maximumFractionDigits:2})}function esc(s){return String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
-function bindUI(){document.querySelectorAll('.role').forEach(b=>b.addEventListener('click',()=>routeMode(b.dataset.mode)));document.querySelectorAll('[data-auth-mode]').forEach(b=>b.addEventListener('click',()=>setAuthMode(b.dataset.authMode)));document.querySelectorAll('[data-go]').forEach(b=>b.addEventListener('click',()=>show(b.dataset.go)));document.querySelectorAll('.cat').forEach(b=>b.addEventListener('click',()=>pickCategory(b)));document.querySelectorAll('[data-nav]').forEach(b=>b.addEventListener('click',()=>{const n=b.dataset.nav;if(n==='home')show('home',b);else if(n==='account'){show('account',b);renderAccount()}else routeMode(n,b)}));$('authAction').addEventListener('click',submitAuth);$('publishBtn').addEventListener('click',createRequest);$('createBusinessBtn').addEventListener('click',createBusiness);$('availabilitySwitch').addEventListener('click',toggleAvailability);$('logoutBtn').addEventListener('click',()=>logout(true));document.addEventListener('click',e=>{const a=e.target.closest('.acceptOfferBtn');if(a)acceptOffer(a.dataset.request,a.dataset.offer);const r=e.target.closest('.respondBtn');if(r)respondToRequest(r.dataset.request);const c=e.target.closest('.completeJobBtn');if(c)completeJob(c.dataset.request);const w=e.target.closest('.whatsappBtn');if(w)openWhatsApp(w.dataset.phone);const m=e.target.closest('.mapBtn');if(m)openMap(m.dataset.map)})}
-async function boot(){bindUI();session=loadStoredSession();if(session){user=session.user||null;await ensureUser().catch(()=>{});await loadProfile().catch(()=>{})}renderAccount();setBadge('V6 • BETA','ok');$('diagnostic').textContent='V6 visual carregada. Lucas Agora conecta moradores, profissionais e empresas de Lucas do Rio Verde.'}
-setInterval(async()=>{if(pollBusy||!session)return;pollBusy=true;try{if(!$('client').classList.contains('hidden'))await loadMyRequests();if(!$('business').classList.contains('hidden')&&business)await Promise.all([loadCityRequests(),loadActiveJobs()])}finally{pollBusy=false}},5000);
-window.addEventListener('DOMContentLoaded',boot);
-if('serviceWorker'in navigator)window.addEventListener('load',()=>navigator.serviceWorker.register('./sw.js?v=6').catch(()=>{}));
-</script>
+  </footer>
+
+  <script>
+    const whatsappBase = "5566992495524";
+
+    const menuItems = [
+      {
+        nome: "07. Combo Digo Top M",
+        preco: "R$ 64,90",
+        categoria: "combo",
+        tipo: "peixe",
+        tamanho: "M",
+        emoji: "🐟",
+        descricao: "Filé de pintado 250g + ventrecha de tambatinga 250g."
+      },
+      {
+        nome: "07. Combo Digo Top G",
+        preco: "R$ 84,90",
+        categoria: "combo",
+        tipo: "peixe",
+        tamanho: "G",
+        emoji: "🐟",
+        descricao: "Filé de pintado 400g + ventrecha de tambatinga 400g."
+      },
+      {
+        nome: "08. Batata frita com bacon M",
+        preco: "R$ 30,00",
+        categoria: "porcao",
+        tipo: "porcao",
+        tamanho: "M",
+        emoji: "🍟",
+        descricao: "Batata frita com bacon 250g."
+      },
+      {
+        nome: "08. Batata frita com bacon G",
+        preco: "R$ 45,00",
+        categoria: "porcao",
+        tipo: "porcao",
+        tamanho: "G",
+        emoji: "🍟",
+        descricao: "Batata frita com bacon 400g."
+      },
+      {
+        nome: "09. Calabresa acebolada M",
+        preco: "R$ 35,00",
+        categoria: "porcao",
+        tipo: "porcao",
+        tamanho: "M",
+        emoji: "🥓",
+        descricao: "Porção com 250g."
+      },
+      {
+        nome: "09. Calabresa acebolada G",
+        preco: "R$ 50,00",
+        categoria: "porcao",
+        tipo: "porcao",
+        tamanho: "G",
+        emoji: "🥓",
+        descricao: "Porção com 400g."
+      },
+      {
+        nome: "10. Tulipa de frango M",
+        preco: "R$ 29,90",
+        categoria: "frango",
+        tipo: "frango",
+        tamanho: "M",
+        emoji: "🍗",
+        descricao: "Porção com 250g."
+      },
+      {
+        nome: "10. Tulipa de frango G",
+        preco: "R$ 39,90",
+        categoria: "frango",
+        tipo: "frango",
+        tamanho: "G",
+        emoji: "🍗",
+        descricao: "Porção com 400g."
+      },
+      {
+        nome: "11. Cebola empanada M",
+        preco: "R$ 29,90",
+        categoria: "porcao",
+        tipo: "porcao",
+        tamanho: "M",
+        emoji: "🧅",
+        descricao: "Porção com 250g."
+      },
+      {
+        nome: "11. Cebola empanada G",
+        preco: "R$ 39,90",
+        categoria: "porcao",
+        tipo: "porcao",
+        tamanho: "G",
+        emoji: "🧅",
+        descricao: "Porção com 400g."
+      },
+      {
+        nome: "12. Combo Boteco G 800g",
+        preco: "R$ 59,90",
+        categoria: "combo",
+        tipo: "porcao",
+        tamanho: "G",
+        emoji: "🍻",
+        descricao: "Calabresa acebolada 400g + batata frita com bacon 400g."
+      },
+      {
+        nome: "13. Combo Digo Peixe M 500g",
+        preco: "R$ 79,90",
+        categoria: "combo",
+        tipo: "peixe",
+        tamanho: "M",
+        emoji: "🐠",
+        descricao: "Filé de pintado 250g + filé de tambatinga 250g."
+      },
+      {
+        nome: "14. Combo Pescador M 500g",
+        preco: "R$ 64,90",
+        categoria: "combo",
+        tipo: "peixe",
+        tamanho: "M",
+        emoji: "🎣",
+        descricao: "Costelinha de tambatinga 250g + batata frita com bacon 250g."
+      },
+      {
+        nome: "14. Combo Pescador G 800g",
+        preco: "R$ 89,90",
+        categoria: "combo",
+        tipo: "peixe",
+        tamanho: "G",
+        emoji: "🎣",
+        descricao: "Costelinha de tambatinga 400g + batata frita com bacon 400g."
+      },
+      {
+        nome: "15. Combo Frango M 800g",
+        preco: "R$ 64,90",
+        categoria: "combo",
+        tipo: "frango",
+        tamanho: "M",
+        emoji: "🍗",
+        descricao: "Filé de frango 250g + tulipa de frango 250g + batata frita 300g + refri 1L."
+      },
+      {
+        nome: "15. Combo Frango G 1.3kg",
+        preco: "R$ 89,90",
+        categoria: "combo",
+        tipo: "frango",
+        tamanho: "G",
+        emoji: "🍗",
+        descricao: "Filé de frango 400g + tulipa de frango 400g + batata frita 500g + refri 1L."
+      },
+      {
+        nome: "16. Combo Petisqueiro M 850g",
+        preco: "R$ 89,90",
+        categoria: "combo",
+        tipo: "misto",
+        tamanho: "M",
+        emoji: "🔥",
+        descricao: "Filé de tambatinga 150g + tulipa 200g + cebola empanada 150g + batata com bacon 350g + refri 1,5L."
+      },
+      {
+        nome: "16. Combo Petisqueiro G 1.4kg",
+        preco: "R$ 109,90",
+        categoria: "combo",
+        tipo: "misto",
+        tamanho: "G",
+        emoji: "🔥",
+        descricao: "Filé de tambatinga 250g + tulipa 350g + cebola empanada 250g + batata com bacon 550g + refri 1,5L."
+      },
+      {
+        nome: "17. Combo Tambatinga M 850g",
+        preco: "R$ 109,90",
+        categoria: "combo",
+        tipo: "peixe",
+        tamanho: "M",
+        emoji: "🐟",
+        descricao: "Filé de tambatinga 400g + batata frita 300g + cebola empanada 150g + refri 1L."
+      },
+      {
+        nome: "17. Combo Tambatinga G 1.4kg",
+        preco: "R$ 134,90",
+        categoria: "combo",
+        tipo: "peixe",
+        tamanho: "G",
+        emoji: "🐟",
+        descricao: "Filé de tambatinga 700g + batata frita 500g + cebola empanada 200g + refri 1L."
+      },
+      {
+        nome: "18. Combo Frango e Peixe M 500g",
+        preco: "R$ 69,90",
+        categoria: "combo",
+        tipo: "misto",
+        tamanho: "M",
+        emoji: "🍗",
+        descricao: "Filé de tilápia 250g + tulipa de frango 250g."
+      },
+      {
+        nome: "18. Combo Frango e Peixe G 800g",
+        preco: "R$ 89,90",
+        categoria: "combo",
+        tipo: "misto",
+        tamanho: "G",
+        emoji: "🍗",
+        descricao: "Filé de tilápia 400g + tulipa de frango 400g."
+      },
+      {
+        nome: "19. Combo Digo Mix M 1kg",
+        preco: "R$ 99,90",
+        categoria: "combo",
+        tipo: "misto",
+        tamanho: "M",
+        emoji: "🍽️",
+        descricao: "Filé de tambatinga 150g + filé de tilápia 150g + filé de frango 150g + tulipa 200g + batata com bacon 350g + refri 1,5L."
+      },
+      {
+        nome: "19. Combo Digo Mix G 1.7kg",
+        preco: "R$ 129,90",
+        categoria: "combo",
+        tipo: "misto",
+        tamanho: "G",
+        emoji: "🍽️",
+        descricao: "Filé de tambatinga 250g + filé de tilápia 250g + filé de frango 300g + tulipa 300g + batata com bacon 600g + refri 1,5L."
+      },
+      {
+        nome: "20. Combo Peixe Mix 750g",
+        preco: "R$ 64,90",
+        categoria: "combo",
+        tipo: "peixe",
+        tamanho: "Único",
+        emoji: "🐟",
+        descricao: "Ventrecha de tambatinga 350g + batata frita 250g + cebola empanada 150g."
+      },
+      {
+        nome: "21. Combo Resenha Leve",
+        preco: "R$ 59,90",
+        categoria: "combo",
+        tipo: "peixe",
+        tamanho: "Único",
+        emoji: "🥳",
+        descricao: "Filé de pintado 250g + batata frita 200g + cebola empanada 100g."
+      },
+      {
+        nome: "22. Combo Tudo Nosso",
+        preco: "R$ 69,90",
+        categoria: "combo",
+        tipo: "peixe",
+        tamanho: "Único",
+        emoji: "👑",
+        descricao: "Lambari 200g + filé de pintado 200g + batata frita 250g."
+      }
+    ];
+
+    const menuGrid = document.getElementById("menuGrid");
+    const comboGrid = document.getElementById("comboGrid");
+    const filterButtons = document.querySelectorAll(".filter-btn");
+
+    function makeWhatsLink(itemName){
+      return `https://wa.me/${whatsappBase}?text=${encodeURIComponent(`Olá! Quero pedir: ${itemName} - IG Petiscaria.`)}`;
+    }
+
+    function renderMenu(filter = "todos"){
+      menuGrid.innerHTML = "";
+
+      const filtered = menuItems.filter(item => {
+        if(filter === "todos") return true;
+        if(filter === "combo") return item.categoria === "combo";
+        if(filter === "peixe") return item.tipo === "peixe";
+        if(filter === "frango") return item.tipo === "frango";
+        if(filter === "porcao") return item.categoria === "porcao";
+        return true;
+      });
+
+      filtered.forEach(item => {
+        const card = document.createElement("article");
+        card.className = "menu-card";
+        card.innerHTML = `
+          <div class="menu-cover">
+            <div class="emoji">${item.emoji}</div>
+            <div class="size-pill">${item.tamanho}</div>
+          </div>
+          <div class="menu-body">
+            <div class="menu-title">${item.nome}</div>
+            <div class="price">${item.preco}</div>
+            <div class="menu-desc">${item.descricao}</div>
+            <div class="menu-footer">
+              <a class="btn btn-primary" href="${makeWhatsLink(item.nome)}" target="_blank">Pedir agora</a>
+            </div>
+          </div>
+        `;
+        menuGrid.appendChild(card);
+      });
+    }
+
+    function renderCombos(){
+      const comboHighlights = [
+        "15. Combo Frango M 800g",
+        "16. Combo Petisqueiro G 1.4kg",
+        "17. Combo Tambatinga M 850g",
+        "18. Combo Frango e Peixe M 500g"
+      ];
+
+      const combos = menuItems.filter(item => comboHighlights.includes(item.nome));
+
+      comboGrid.innerHTML = "";
+
+      combos.forEach(item => {
+        const card = document.createElement("article");
+        card.className = "combo-card";
+        card.innerHTML = `
+          <div class="combo-top">
+            <span class="tag">Combo destaque</span>
+            <div class="big">${item.emoji}</div>
+          </div>
+          <div class="combo-content">
+            <h3>${item.nome}</h3>
+            <div class="price">${item.preco}</div>
+            <p>${item.descricao}</p>
+            <a class="btn btn-outline" href="${makeWhatsLink(item.nome)}" target="_blank">Quero esse combo</a>
+          </div>
+        `;
+        comboGrid.appendChild(card);
+      });
+    }
+
+    filterButtons.forEach(btn => {
+      btn.addEventListener("click", () => {
+        filterButtons.forEach(b => b.classList.remove("active"));
+        btn.classList.add("active");
+        renderMenu(btn.dataset.filter);
+      });
+    });
+
+    const menuToggle = document.getElementById("menuToggle");
+    const mainNav = document.getElementById("mainNav");
+
+    menuToggle.addEventListener("click", () => {
+      mainNav.classList.toggle("open");
+    });
+
+    renderMenu();
+    renderCombos();
+  </script>
 </body>
 </html>
