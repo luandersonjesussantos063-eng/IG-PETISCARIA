@@ -2,28 +2,17 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <meta
-    name="viewport"
-    content="width=device-width, initial-scale=1.0"
-  >
-
-  <title>
-    Digo Petiscaria | Taporah - MT
-  </title>
+  <title>Digo Petiscaria | Taporah - MT</title>
 
   <meta
     name="description"
-    content="Digo Petiscaria em Taporah - MT. Peixes, frango, petiscos e combos especiais. Faça seu pedido pelo WhatsApp."
+    content="Digo Petiscaria em Taporah - MT. Peixes, frango, petiscos, combos e bebidas. Faça seu pedido pelo WhatsApp."
   >
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
-
-  <link
-    rel="preconnect"
-    href="https://fonts.gstatic.com"
-    crossorigin
-  >
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
   <link
     href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700;800;900&display=swap"
@@ -31,7 +20,6 @@
   >
 
   <style>
-
     :root{
       --bg:#070707;
       --bg2:#0d0d0d;
@@ -49,14 +37,11 @@
 
       --line:rgba(255,255,255,.07);
 
-      --shadow:
-        0 18px 45px rgba(0,0,0,.35);
+      --shadow:0 18px 45px rgba(0,0,0,.35);
 
       --radius:26px;
-
       --max:1240px;
     }
-
 
     *{
       margin:0;
@@ -65,476 +50,276 @@
       scroll-behavior:smooth;
     }
 
-
     body{
       font-family:"Inter",sans-serif;
-
       color:var(--text);
-
       background:
-        radial-gradient(
-          circle at 90% 0%,
-          rgba(255,125,0,.13),
-          transparent 23%
-        ),
-        radial-gradient(
-          circle at 0% 45%,
-          rgba(255,177,50,.05),
-          transparent 20%
-        ),
+        radial-gradient(circle at 90% 0%, rgba(255,125,0,.13), transparent 23%),
+        radial-gradient(circle at 0% 45%, rgba(255,177,50,.05), transparent 20%),
         var(--bg);
-
       overflow-x:hidden;
     }
-
 
     img{
       display:block;
       width:100%;
     }
 
-
     a{
       color:inherit;
       text-decoration:none;
     }
 
-
     button{
       font-family:inherit;
     }
 
-
     .container{
-      width:min(
-        calc(100% - 32px),
-        var(--max)
-      );
-
+      width:min(calc(100% - 32px), var(--max));
       margin:auto;
     }
-
 
     .section{
       padding:85px 0;
     }
 
-
     .eyebrow{
       display:inline-flex;
       align-items:center;
       gap:9px;
-
       padding:9px 14px;
-
       border-radius:999px;
-
-      background:
-        rgba(255,148,24,.08);
-
-      border:
-        1px solid rgba(255,148,24,.17);
-
+      background:rgba(255,148,24,.08);
+      border:1px solid rgba(255,148,24,.17);
       color:var(--gold);
-
       font-size:12px;
       font-weight:800;
       letter-spacing:.08em;
       text-transform:uppercase;
     }
 
-
     .section-title{
       font-family:"Bebas Neue",sans-serif;
-
-      font-size:
-        clamp(42px,6vw,72px);
-
+      font-size:clamp(42px,6vw,72px);
       letter-spacing:.02em;
-
       line-height:.92;
-
       margin:18px 0 13px;
     }
 
-
     .section-subtitle{
       max-width:720px;
-
       color:var(--muted);
-
       font-size:16px;
-
       line-height:1.75;
     }
 
-
     .btn{
       min-height:52px;
-
       display:inline-flex;
-
       align-items:center;
       justify-content:center;
-
       gap:10px;
-
       padding:14px 24px;
-
       border-radius:999px;
-
       font-weight:800;
-
       transition:.25s ease;
-
       border:none;
-
       cursor:pointer;
     }
 
-
     .btn:hover{
-      transform:
-        translateY(-2px);
+      transform:translateY(-2px);
     }
-
 
     .btn-primary{
       color:#111;
-
-      background:
-        linear-gradient(
-          135deg,
-          var(--gold),
-          var(--orange)
-        );
-
-      box-shadow:
-        0 12px 24px
-        rgba(255,130,0,.2);
+      background:linear-gradient(135deg,var(--gold),var(--orange));
+      box-shadow:0 12px 24px rgba(255,130,0,.2);
     }
-
 
     .btn-whatsapp{
-      background:
-        linear-gradient(
-          135deg,
-          #1fb85a,
-          var(--green)
-        );
-
+      background:linear-gradient(135deg,#1fb85a,var(--green));
       color:white;
-
-      box-shadow:
-        0 12px 26px
-        rgba(37,211,102,.14);
+      box-shadow:0 12px 26px rgba(37,211,102,.14);
     }
-
 
     .btn-dark{
-      background:
-        rgba(255,255,255,.03);
-
+      background:rgba(255,255,255,.03);
       color:white;
-
-      border:
-        1px solid
-        rgba(255,255,255,.09);
+      border:1px solid rgba(255,255,255,.09);
     }
-
-
 
     /* HEADER */
 
-
     header{
       position:sticky;
-
       top:0;
-
       z-index:1000;
-
-      background:
-        rgba(7,7,7,.83);
-
-      backdrop-filter:
-        blur(18px);
-
-      border-bottom:
-        1px solid var(--line);
+      background:rgba(7,7,7,.83);
+      backdrop-filter:blur(18px);
+      border-bottom:1px solid var(--line);
     }
-
 
     .header-wrap{
       min-height:84px;
-
       display:flex;
-
       align-items:center;
       justify-content:space-between;
-
       gap:24px;
     }
 
-
     .brand{
       display:flex;
-
       align-items:center;
-
       gap:13px;
-
       min-width:max-content;
     }
-
 
     .brand-mark{
       width:56px;
       height:56px;
-
       display:grid;
-
       place-items:center;
-
       border-radius:18px;
-
-      background:
-        linear-gradient(
-          135deg,
-          var(--gold),
-          var(--orange2)
-        );
-
+      background:linear-gradient(135deg,var(--gold),var(--orange2));
       font-size:28px;
-
-      box-shadow:
-        var(--shadow);
+      box-shadow:var(--shadow);
     }
-
 
     .brand-text{
       line-height:1;
     }
 
-
     .brand-text strong{
       display:block;
-
-      font-family:
-        "Bebas Neue",
-        sans-serif;
-
+      font-family:"Bebas Neue",sans-serif;
       font-size:32px;
-
       letter-spacing:.06em;
-
       color:var(--gold);
     }
 
-
     .brand-text span{
       display:block;
-
       margin-top:2px;
-
       font-size:11px;
-
       letter-spacing:.29em;
-
       color:#eed4a4;
     }
 
-
     .desktop-nav{
       display:flex;
-
       align-items:center;
-
       gap:27px;
     }
 
-
     .desktop-nav a{
       font-size:14px;
-
       font-weight:700;
-
       color:#eee;
-
       transition:.2s;
     }
-
 
     .desktop-nav a:hover{
       color:var(--gold);
     }
 
-
     .header-actions{
       display:flex;
-
       align-items:center;
-
       gap:10px;
     }
 
-
     .menu-btn{
       display:none;
-
       width:46px;
       height:46px;
-
       border-radius:14px;
-
-      border:
-        1px solid var(--line);
-
+      border:1px solid var(--line);
       background:#111;
-
       color:white;
-
       font-size:20px;
     }
 
-
     .mobile-nav{
       display:none;
-
       padding-bottom:16px;
-
       flex-direction:column;
     }
 
-
     .mobile-nav a{
       padding:13px 0;
-
       font-weight:700;
-
-      border-bottom:
-        1px solid var(--line);
+      border-bottom:1px solid var(--line);
     }
-
 
     .mobile-nav.open{
       display:flex;
     }
 
-
-
     /* HERO */
-
 
     .hero{
       padding:60px 0 35px;
     }
 
-
     .hero-grid{
       display:grid;
-
-      grid-template-columns:
-        1fr 1fr;
-
+      grid-template-columns:1fr 1fr;
       gap:35px;
-
       align-items:center;
     }
 
-
     .hero-copy h1{
-      font-family:
-        "Bebas Neue",
-        sans-serif;
-
-      font-size:
-        clamp(65px,8vw,115px);
-
+      font-family:"Bebas Neue",sans-serif;
+      font-size:clamp(65px,8vw,115px);
       line-height:.82;
-
       letter-spacing:.01em;
-
       margin:23px 0;
     }
 
-
     .hero-copy h1 span{
       display:block;
-
       color:var(--gold);
     }
 
-
     .hero-copy p{
       max-width:650px;
-
       color:#d0d0d0;
-
       font-size:17px;
-
       line-height:1.8;
     }
 
-
     .hero-actions{
       display:flex;
-
       gap:13px;
-
       flex-wrap:wrap;
-
       margin-top:27px;
     }
 
-
     .hero-small-info{
       display:flex;
-
       gap:20px;
-
       flex-wrap:wrap;
-
       margin-top:28px;
-
       color:#bababa;
-
       font-size:14px;
     }
 
-
     .hero-visual{
       min-height:620px;
-
       border-radius:36px;
-
       position:relative;
-
       overflow:hidden;
-
       background:
-        linear-gradient(
-          180deg,
-          rgba(0,0,0,.05),
-          rgba(0,0,0,.75)
-        ),
-        url("assets/img/combo-digo-top.jpg")
-        center/cover;
-
-      border:
-        1px solid
-        rgba(255,255,255,.08);
-
-      box-shadow:
-        var(--shadow);
+        linear-gradient(180deg,rgba(0,0,0,.05),rgba(0,0,0,.75)),
+        url("assets/img/combo-digo-top.jpg") center/cover;
+      border:1px solid rgba(255,255,255,.08);
+      box-shadow:var(--shadow);
     }
-
 
     .hero-overlay{
       position:absolute;
-
       inset:0;
-
       background:
         linear-gradient(
           180deg,
@@ -544,952 +329,558 @@
         );
     }
 
-
     .hero-location{
       position:absolute;
-
       top:22px;
       right:22px;
-
       z-index:2;
-
       padding:12px 17px;
-
       border-radius:999px;
-
-      background:
-        rgba(10,10,10,.75);
-
-      backdrop-filter:
-        blur(15px);
-
-      border:
-        1px solid rgba(255,255,255,.1);
-
+      background:rgba(10,10,10,.75);
+      backdrop-filter:blur(15px);
+      border:1px solid rgba(255,255,255,.1);
       font-size:13px;
-
       font-weight:800;
     }
 
-
     .hero-card{
       position:absolute;
-
       left:24px;
       right:24px;
       bottom:24px;
-
       z-index:2;
-
       padding:24px;
-
       border-radius:26px;
-
-      background:
-        rgba(12,12,12,.82);
-
-      backdrop-filter:
-        blur(20px);
-
-      border:
-        1px solid rgba(255,255,255,.1);
+      background:rgba(12,12,12,.82);
+      backdrop-filter:blur(20px);
+      border:1px solid rgba(255,255,255,.1);
     }
-
 
     .hero-card strong{
       display:block;
-
-      font-family:
-        "Bebas Neue",
-        sans-serif;
-
+      font-family:"Bebas Neue",sans-serif;
       font-size:35px;
-
       letter-spacing:.03em;
     }
 
-
     .hero-card p{
       color:#c8c8c8;
-
       margin-top:6px;
-
       line-height:1.6;
     }
 
-
-
     /* BENEFITS */
-
 
     .benefits{
       padding:20px 0 30px;
     }
 
-
     .benefits-grid{
       display:grid;
-
-      grid-template-columns:
-        repeat(4,1fr);
-
+      grid-template-columns:repeat(4,1fr);
       gap:15px;
     }
 
-
     .benefit{
       padding:22px;
-
       border-radius:22px;
-
-      background:
-        linear-gradient(
-          180deg,
-          #141414,
-          #101010
-        );
-
-      border:
-        1px solid var(--line);
+      background:linear-gradient(180deg,#141414,#101010);
+      border:1px solid var(--line);
     }
-
 
     .benefit strong{
       display:block;
-
       color:var(--gold);
-
       margin-bottom:7px;
-
       font-size:16px;
     }
 
-
     .benefit p{
       color:var(--muted);
-
       font-size:14px;
-
       line-height:1.6;
     }
-
-
 
     /* CATEGORIES */
 
-
     .category-grid{
       display:grid;
-
-      grid-template-columns:
-        repeat(4,1fr);
-
+      grid-template-columns:repeat(5,1fr);
       gap:17px;
-
       margin-top:35px;
     }
 
-
     .category-card{
       min-height:270px;
-
       position:relative;
-
       overflow:hidden;
-
       display:flex;
-
       align-items:flex-end;
-
       padding:23px;
-
       border-radius:27px;
-
-      border:
-        1px solid var(--line);
-
-      background:
-        #151515;
-
-      box-shadow:
-        var(--shadow);
+      border:1px solid var(--line);
+      background:#151515;
+      box-shadow:var(--shadow);
     }
-
 
     .category-card::before{
       content:"";
-
       position:absolute;
-
       inset:0;
-
-      background:
-        linear-gradient(
-          180deg,
-          rgba(0,0,0,.1),
-          rgba(0,0,0,.88)
-        );
-
+      background:linear-gradient(180deg,rgba(0,0,0,.1),rgba(0,0,0,.88));
       z-index:1;
     }
 
-
     .cat-peixe{
-      background:
-        url("assets/img/combo-digo-peixe.jpg")
-        center/cover;
+      background:url("assets/img/combo-digo-peixe.jpg") center/cover;
     }
-
 
     .cat-frango{
-      background:
-        url("assets/img/tulipa-frango.jpg")
-        center/cover;
+      background:url("assets/img/tulipa-frango.jpg") center/cover;
     }
-
 
     .cat-petisco{
-      background:
-        url("assets/img/batata-bacon.jpg")
-        center/cover;
+      background:url("assets/img/batata-bacon.jpg") center/cover;
     }
-
 
     .cat-combo{
-      background:
-        url("assets/img/combo-petisqueiro.jpg")
-        center/cover;
+      background:url("assets/img/combo-petisqueiro.jpg") center/cover;
     }
 
+    .cat-bebidas{
+      background:url("assets/img/coca-cola-1-5l.jpg") center/cover;
+    }
 
     .category-content{
       position:relative;
-
       z-index:2;
     }
 
-
     .category-content h3{
-      font-family:
-        "Bebas Neue",
-        sans-serif;
-
+      font-family:"Bebas Neue",sans-serif;
       font-size:33px;
-
       letter-spacing:.03em;
     }
 
-
     .category-content p{
       margin-top:6px;
-
       color:#ccc;
-
       font-size:14px;
-
       line-height:1.6;
     }
 
-
-
     /* MENU */
-
 
     .menu-header{
       display:flex;
-
       justify-content:space-between;
-
       align-items:flex-end;
-
       gap:20px;
-
       margin-bottom:30px;
-
       flex-wrap:wrap;
     }
-
 
     .filters{
       display:flex;
-
       gap:9px;
-
       flex-wrap:wrap;
     }
 
-
     .filter-btn{
       min-height:44px;
-
       padding:11px 17px;
-
       border-radius:999px;
-
       background:#111;
-
-      border:
-        1px solid var(--line);
-
+      border:1px solid var(--line);
       color:white;
-
       font-weight:800;
-
       cursor:pointer;
-
       transition:.2s;
     }
-
 
     .filter-btn.active,
     .filter-btn:hover{
       color:#111;
-
       border-color:transparent;
-
-      background:
-        linear-gradient(
-          135deg,
-          var(--gold),
-          var(--orange)
-        );
+      background:linear-gradient(135deg,var(--gold),var(--orange));
     }
-
 
     .menu-grid{
       display:grid;
-
-      grid-template-columns:
-        repeat(3,1fr);
-
+      grid-template-columns:repeat(3,1fr);
       gap:19px;
     }
 
-
     .menu-card{
       overflow:hidden;
-
       display:flex;
-
       flex-direction:column;
-
       border-radius:27px;
-
-      background:
-        linear-gradient(
-          180deg,
-          #141414,
-          #101010
-        );
-
-      border:
-        1px solid var(--line);
-
-      box-shadow:
-        var(--shadow);
-
+      background:linear-gradient(180deg,#141414,#101010);
+      border:1px solid var(--line);
+      box-shadow:var(--shadow);
       transition:.25s;
     }
 
-
     .menu-card:hover{
-      transform:
-        translateY(-4px);
-
-      border-color:
-        rgba(244,192,106,.18);
+      transform:translateY(-4px);
+      border-color:rgba(244,192,106,.18);
     }
-
 
     .menu-cover{
       height:230px;
-
       position:relative;
-
       overflow:hidden;
-
       background:#181818;
     }
-
 
     .menu-cover img{
       width:100%;
       height:100%;
-
       object-fit:cover;
-
-      transition:
-        transform .35s;
+      transition:transform .35s;
     }
 
-
-    .menu-card:hover
-    .menu-cover img{
-      transform:
-        scale(1.04);
+    .menu-card:hover .menu-cover img{
+      transform:scale(1.04);
     }
-
 
     .menu-cover::after{
       content:"";
-
       position:absolute;
-
       inset:0;
-
-      background:
-        linear-gradient(
-          180deg,
-          rgba(0,0,0,.03),
-          rgba(0,0,0,.35)
-        );
+      background:linear-gradient(180deg,rgba(0,0,0,.03),rgba(0,0,0,.35));
     }
-
 
     .badges{
       position:absolute;
-
       top:15px;
       left:15px;
       right:15px;
-
       z-index:2;
-
       display:flex;
-
       justify-content:space-between;
-
       gap:10px;
     }
 
-
     .pill{
       padding:8px 12px;
-
       border-radius:999px;
-
       font-size:11px;
-
       font-weight:900;
-
       letter-spacing:.06em;
-
       text-transform:uppercase;
     }
 
-
     .pill-category{
       color:white;
-
-      background:
-        rgba(10,10,10,.7);
-
-      backdrop-filter:
-        blur(12px);
-
-      border:
-        1px solid rgba(255,255,255,.1);
+      background:rgba(10,10,10,.7);
+      backdrop-filter:blur(12px);
+      border:1px solid rgba(255,255,255,.1);
     }
-
 
     .pill-size{
       color:#111;
-
-      background:
-        linear-gradient(
-          135deg,
-          var(--gold),
-          var(--orange)
-        );
+      background:linear-gradient(135deg,var(--gold),var(--orange));
     }
-
 
     .menu-body{
       padding:21px;
-
       display:flex;
-
       flex-direction:column;
-
       flex:1;
     }
 
-
     .menu-title{
       font-size:20px;
-
       font-weight:850;
-
       line-height:1.35;
     }
 
-
     .menu-price{
       margin-top:11px;
-
-      font-family:
-        "Bebas Neue",
-        sans-serif;
-
+      font-family:"Bebas Neue",sans-serif;
       font-size:37px;
-
       color:var(--gold);
-
       letter-spacing:.03em;
     }
 
-
     .menu-description{
       margin-top:4px;
-
       color:var(--muted);
-
       font-size:14px;
-
       line-height:1.7;
-
       min-height:76px;
     }
 
-
     .menu-footer{
       margin-top:auto;
-
       padding-top:16px;
     }
-
 
     .menu-footer .btn{
       width:100%;
     }
 
-
-
     /* FEATURED */
-
 
     .featured-grid{
       display:grid;
-
-      grid-template-columns:
-        repeat(4,1fr);
-
+      grid-template-columns:repeat(4,1fr);
       gap:18px;
-
       margin-top:32px;
     }
 
-
     .featured-card{
       overflow:hidden;
-
       display:flex;
-
       flex-direction:column;
-
       border-radius:27px;
-
       background:#121212;
-
-      border:
-        1px solid var(--line);
-
-      box-shadow:
-        var(--shadow);
+      border:1px solid var(--line);
+      box-shadow:var(--shadow);
     }
-
 
     .featured-image{
       height:225px;
-
       position:relative;
-
       overflow:hidden;
     }
 
-
     .featured-image img{
       height:100%;
-
       object-fit:cover;
     }
 
-
     .featured-image::after{
       content:"";
-
       position:absolute;
-
       inset:0;
-
-      background:
-        linear-gradient(
-          180deg,
-          transparent,
-          rgba(0,0,0,.3)
-        );
+      background:linear-gradient(180deg,transparent,rgba(0,0,0,.3));
     }
-
 
     .featured-label{
       position:absolute;
-
       top:15px;
       left:15px;
-
       z-index:2;
-
-      background:
-        linear-gradient(
-          135deg,
-          var(--gold),
-          var(--orange)
-        );
-
+      background:linear-gradient(135deg,var(--gold),var(--orange));
       color:#111;
-
       padding:8px 12px;
-
       border-radius:999px;
-
       font-size:11px;
-
       font-weight:900;
     }
 
-
     .featured-body{
       padding:20px;
-
       display:flex;
-
       flex-direction:column;
-
       flex:1;
     }
-
 
     .featured-body h3{
       font-size:20px;
-
       line-height:1.4;
     }
 
-
     .featured-body p{
       margin-top:8px;
-
       color:var(--muted);
-
       font-size:14px;
-
       line-height:1.65;
-
       flex:1;
     }
 
-
     .featured-price{
       margin:14px 0;
-
-      font-family:
-        "Bebas Neue",
-        sans-serif;
-
+      font-family:"Bebas Neue",sans-serif;
       font-size:35px;
-
       color:var(--gold);
     }
-
 
     .featured-body .btn{
       width:100%;
     }
 
-
-
     /* DELIVERY */
-
 
     .delivery-box{
       display:grid;
-
-      grid-template-columns:
-        1.1fr .9fr;
-
+      grid-template-columns:1.1fr .9fr;
       gap:25px;
-
       padding:38px;
-
       border-radius:34px;
-
       background:
-        radial-gradient(
-          circle at 15% 10%,
-          rgba(255,150,20,.15),
-          transparent 30%
-        ),
-        linear-gradient(
-          135deg,
-          #161616,
-          #0d0d0d
-        );
-
-      border:
-        1px solid
-        rgba(255,160,30,.12);
-
-      box-shadow:
-        var(--shadow);
+        radial-gradient(circle at 15% 10%,rgba(255,150,20,.15),transparent 30%),
+        linear-gradient(135deg,#161616,#0d0d0d);
+      border:1px solid rgba(255,160,30,.12);
+      box-shadow:var(--shadow);
     }
-
 
     .delivery-left h2{
       margin:17px 0 13px;
-
-      font-family:
-        "Bebas Neue",
-        sans-serif;
-
-      font-size:
-        clamp(47px,6vw,75px);
-
+      font-family:"Bebas Neue",sans-serif;
+      font-size:clamp(47px,6vw,75px);
       line-height:.92;
     }
 
-
     .delivery-left p{
       max-width:620px;
-
       color:#ccc;
-
       line-height:1.8;
-
       margin-bottom:22px;
     }
 
-
     .phone{
       margin-top:17px;
-
-      font-family:
-        "Bebas Neue",
-        sans-serif;
-
+      font-family:"Bebas Neue",sans-serif;
       font-size:38px;
-
       color:var(--gold);
     }
-
 
     .delivery-info{
       display:grid;
-
       gap:14px;
-
       align-content:center;
     }
 
-
     .info-card{
       padding:20px;
-
       border-radius:21px;
-
-      border:
-        1px solid var(--line);
-
-      background:
-        rgba(255,255,255,.025);
+      border:1px solid var(--line);
+      background:rgba(255,255,255,.025);
     }
-
 
     .info-card strong{
       display:block;
-
       color:var(--gold);
-
       margin-bottom:6px;
     }
 
-
     .info-card span{
       color:var(--muted);
-
       font-size:14px;
-
       line-height:1.6;
     }
 
-
-
     /* FOOTER */
-
 
     footer{
       padding:30px 0;
-
       background:#050505;
-
-      border-top:
-        1px solid var(--line);
+      border-top:1px solid var(--line);
     }
-
 
     .footer{
       display:flex;
-
       align-items:center;
-
       justify-content:space-between;
-
       gap:20px;
-
       flex-wrap:wrap;
     }
-
 
     .footer-links{
       display:flex;
-
       flex-wrap:wrap;
-
       gap:17px;
     }
 
-
     .footer-links a{
       color:#bbb;
-
       font-size:14px;
-
       font-weight:600;
     }
 
-
     .copyright{
       color:#777;
-
       font-size:13px;
     }
 
-
-
     /* WHATSAPP FLOAT */
-
 
     .floating-whatsapp{
       position:fixed;
-
       right:20px;
       bottom:20px;
-
       z-index:1000;
-
       width:62px;
       height:62px;
-
       display:grid;
-
       place-items:center;
-
       border-radius:50%;
-
-      background:
-        var(--green);
-
-      box-shadow:
-        0 10px 30px
-        rgba(37,211,102,.3);
-
+      background:var(--green);
+      box-shadow:0 10px 30px rgba(37,211,102,.3);
       font-size:28px;
-
       transition:.2s;
     }
 
-
     .floating-whatsapp:hover{
-      transform:
-        scale(1.07);
+      transform:scale(1.07);
     }
-
-
 
     /* RESPONSIVE */
 
-
-    @media(max-width:1100px){
-
-      .hero-grid,
-      .delivery-box{
-        grid-template-columns:
-          1fr;
+    @media(max-width:1180px){
+      .category-grid{
+        grid-template-columns:repeat(3,1fr);
       }
-
-
-      .benefits-grid,
-      .category-grid,
-      .featured-grid{
-        grid-template-columns:
-          repeat(2,1fr);
-      }
-
-
-      .menu-grid{
-        grid-template-columns:
-          repeat(2,1fr);
-      }
-
     }
 
+    @media(max-width:1100px){
+      .hero-grid,
+      .delivery-box{
+        grid-template-columns:1fr;
+      }
+
+      .benefits-grid,
+      .featured-grid{
+        grid-template-columns:repeat(2,1fr);
+      }
+
+      .menu-grid{
+        grid-template-columns:repeat(2,1fr);
+      }
+    }
 
     @media(max-width:850px){
-
       .desktop-nav{
         display:none;
       }
-
 
       .header-actions .btn{
         display:none;
       }
 
-
       .menu-btn{
         display:block;
       }
-
 
       .hero{
         padding-top:35px;
       }
 
-
       .hero-copy h1{
-        font-size:
-          clamp(62px,15vw,90px);
+        font-size:clamp(62px,15vw,90px);
       }
-
 
       .hero-visual{
         min-height:520px;
       }
 
+      .category-grid{
+        grid-template-columns:repeat(2,1fr);
+      }
     }
 
-
     @media(max-width:600px){
-
       .container{
-        width:
-          calc(100% - 20px);
+        width:calc(100% - 20px);
       }
-
 
       .section{
         padding:65px 0;
       }
-
 
       .benefits-grid,
       .category-grid,
@@ -1498,108 +889,59 @@
         grid-template-columns:1fr;
       }
 
-
       .hero-actions{
         flex-direction:column;
       }
-
 
       .hero-actions .btn{
         width:100%;
       }
 
-
       .hero-visual{
         min-height:480px;
       }
-
 
       .delivery-box{
         padding:24px;
       }
 
-
       .footer{
         align-items:flex-start;
-
         flex-direction:column;
       }
-
 
       .menu-cover{
         height:240px;
       }
-
     }
-
   </style>
 </head>
 
-
 <body>
 
-
 <header>
-
   <div class="container">
 
     <div class="header-wrap">
 
-
-      <a
-        href="#inicio"
-        class="brand"
-      >
-
-        <div class="brand-mark">
-          🐟
-        </div>
-
+      <a href="#inicio" class="brand">
+        <div class="brand-mark">🐟</div>
 
         <div class="brand-text">
-
-          <strong>
-            DIGO
-          </strong>
-
-          <span>
-            PETISCARIA
-          </span>
-
+          <strong>DIGO</strong>
+          <span>PETISCARIA</span>
         </div>
-
       </a>
 
-
-
       <nav class="desktop-nav">
-
-        <a href="#inicio">
-          Início
-        </a>
-
-        <a href="#categorias">
-          Categorias
-        </a>
-
-        <a href="#cardapio">
-          Cardápio
-        </a>
-
-        <a href="#destaques">
-          Destaques
-        </a>
-
-        <a href="#delivery">
-          Delivery
-        </a>
-
+        <a href="#inicio">Início</a>
+        <a href="#categorias">Categorias</a>
+        <a href="#cardapio">Cardápio</a>
+        <a href="#destaques">Destaques</a>
+        <a href="#delivery">Delivery</a>
       </nav>
 
-
-
       <div class="header-actions">
-
         <a
           class="btn btn-whatsapp"
           target="_blank"
@@ -1608,112 +950,46 @@
           Pedir no WhatsApp
         </a>
 
-
-        <button
-          class="menu-btn"
-          id="menuBtn"
-        >
-          ☰
-        </button>
-
+        <button class="menu-btn" id="menuBtn">☰</button>
       </div>
 
     </div>
 
-
-
-    <nav
-      class="mobile-nav"
-      id="mobileNav"
-    >
-
-      <a href="#inicio">
-        Início
-      </a>
-
-      <a href="#categorias">
-        Categorias
-      </a>
-
-      <a href="#cardapio">
-        Cardápio
-      </a>
-
-      <a href="#destaques">
-        Destaques
-      </a>
-
-      <a href="#delivery">
-        Delivery
-      </a>
-
-      <a
-        target="_blank"
-        href="https://wa.me/5566992495524"
-      >
-        WhatsApp
-      </a>
-
+    <nav class="mobile-nav" id="mobileNav">
+      <a href="#inicio">Início</a>
+      <a href="#categorias">Categorias</a>
+      <a href="#cardapio">Cardápio</a>
+      <a href="#destaques">Destaques</a>
+      <a href="#delivery">Delivery</a>
+      <a target="_blank" href="https://wa.me/5566992495524">WhatsApp</a>
     </nav>
 
   </div>
-
 </header>
-
-
 
 <main>
 
-
-<section
-  class="hero"
-  id="inicio"
->
-
+<section class="hero" id="inicio">
   <div class="container hero-grid">
 
-
     <div class="hero-copy">
-
-      <span class="eyebrow">
-        🍽️ Sabor em boa companhia
-      </span>
-
+      <span class="eyebrow">🍽️ Sabor em boa companhia</span>
 
       <h1>
-
         PETISCO BOM
-
-        <span>
-          É NA DIGO
-        </span>
-
+        <span>É NA DIGO</span>
         PETISCARIA
-
       </h1>
 
-
       <p>
-
-        Peixes, frango, petiscos e combos
-        especiais para deixar qualquer
-        encontro mais gostoso.
-
-        Escolha seu pedido e fale direto
-        com a gente pelo WhatsApp.
-
+        Peixes, frango, petiscos, combos e bebidas para deixar qualquer encontro mais gostoso.
+        Escolha seu pedido e fale direto com a gente pelo WhatsApp.
       </p>
 
-
       <div class="hero-actions">
-
-        <a
-          href="#cardapio"
-          class="btn btn-primary"
-        >
+        <a href="#cardapio" class="btn btn-primary">
           Ver Cardápio
         </a>
-
 
         <a
           target="_blank"
@@ -1722,614 +998,259 @@
         >
           Pedir agora
         </a>
-
       </div>
-
 
       <div class="hero-small-info">
-
-        <span>
-          🐟 Peixes
-        </span>
-
-        <span>
-          🍗 Frango
-        </span>
-
-        <span>
-          🍟 Petiscos
-        </span>
-
-        <span>
-          🔥 Combos
-        </span>
-
+        <span>🐟 Peixes</span>
+        <span>🍗 Frango</span>
+        <span>🍟 Petiscos</span>
+        <span>🔥 Combos</span>
+        <span>🥤 Bebidas</span>
       </div>
-
     </div>
-
-
 
     <div class="hero-visual">
-
       <div class="hero-overlay"></div>
 
-
       <div class="hero-location">
-
         📍 Taporah - MT
-
       </div>
-
 
       <div class="hero-card">
-
         <strong>
-
           SUA RESENHA MERECE
           UM PETISCO DE RESPEITO
-
         </strong>
 
-
         <p>
-
-          Peixes, porções e combos
-          preparados para compartilhar.
-
+          Peixes, porções, combos e bebidas para compartilhar.
         </p>
-
       </div>
-
     </div>
 
   </div>
-
 </section>
-
-
 
 <section class="benefits">
-
   <div class="container benefits-grid">
 
-
     <div class="benefit">
-
-      <strong>
-        🐟 Peixes selecionados
-      </strong>
-
-      <p>
-        Opções de pintado,
-        tambatinga e tilápia.
-      </p>
-
+      <strong>🐟 Peixes selecionados</strong>
+      <p>Opções de pintado, tambatinga e tilápia.</p>
     </div>
 
-
     <div class="benefit">
-
-      <strong>
-        🍟 Porções generosas
-      </strong>
-
-      <p>
-        Petiscos para comer
-        sozinho ou compartilhar.
-      </p>
-
+      <strong>🍟 Porções generosas</strong>
+      <p>Petiscos para comer sozinho ou compartilhar.</p>
     </div>
 
-
     <div class="benefit">
-
-      <strong>
-        🔥 Combos completos
-      </strong>
-
-      <p>
-        Mais variedade e sabor
-        em um único pedido.
-      </p>
-
+      <strong>🔥 Combos completos</strong>
+      <p>Mais variedade e sabor em um único pedido.</p>
     </div>
 
-
     <div class="benefit">
-
-      <strong>
-        📲 Pedido fácil
-      </strong>
-
-      <p>
-        Escolha no site e finalize
-        diretamente no WhatsApp.
-      </p>
-
+      <strong>📲 Pedido fácil</strong>
+      <p>Escolha no site e finalize diretamente no WhatsApp.</p>
     </div>
-
 
   </div>
-
 </section>
 
-
-
-<section
-  class="section"
-  id="categorias"
->
-
+<section class="section" id="categorias">
   <div class="container">
 
-
-    <span class="eyebrow">
-      Cardápio
-    </span>
-
+    <span class="eyebrow">Cardápio</span>
 
     <h2 class="section-title">
-
       ESCOLHA SUA
       CATEGORIA
-
     </h2>
 
-
     <p class="section-subtitle">
-
-      Tem peixe, frango,
-      petisco e combo para
-      todos os tipos de fome.
-
+      Tem peixe, frango, petisco, combo e bebida para todos os tipos de fome.
     </p>
-
-
 
     <div class="category-grid">
 
-
-      <div
-        class="category-card cat-peixe"
-      >
-
+      <div class="category-card cat-peixe">
         <div class="category-content">
-
-          <h3>
-            Peixes
-          </h3>
-
-          <p>
-            Pintado, tambatinga,
-            tilápia e outras opções.
-          </p>
-
+          <h3>Peixes</h3>
+          <p>Pintado, tambatinga, tilápia e outras opções.</p>
         </div>
-
       </div>
 
-
-
-      <div
-        class="category-card cat-frango"
-      >
-
+      <div class="category-card cat-frango">
         <div class="category-content">
-
-          <h3>
-            Frango
-          </h3>
-
-          <p>
-            Tulipa e filé de frango
-            crocante.
-          </p>
-
+          <h3>Frango</h3>
+          <p>Tulipa e filé de frango crocante.</p>
         </div>
-
       </div>
 
-
-
-      <div
-        class="category-card cat-petisco"
-      >
-
+      <div class="category-card cat-petisco">
         <div class="category-content">
-
-          <h3>
-            Petiscos
-          </h3>
-
-          <p>
-            Batata, calabresa,
-            cebola empanada e mais.
-          </p>
-
+          <h3>Petiscos</h3>
+          <p>Batata, calabresa, cebola empanada e mais.</p>
         </div>
-
       </div>
 
-
-
-      <div
-        class="category-card cat-combo"
-      >
-
+      <div class="category-card cat-combo">
         <div class="category-content">
-
-          <h3>
-            Combos
-          </h3>
-
-          <p>
-            Combinações completas
-            para compartilhar.
-          </p>
-
+          <h3>Combos</h3>
+          <p>Combinações completas para compartilhar.</p>
         </div>
-
       </div>
 
+      <div class="category-card cat-bebidas">
+        <div class="category-content">
+          <h3>Bebidas</h3>
+          <p>Refrigerantes para acompanhar seu pedido.</p>
+        </div>
+      </div>
 
     </div>
-
   </div>
-
 </section>
 
-
-
-<section
-  class="section"
-  id="cardapio"
->
-
+<section class="section" id="cardapio">
   <div class="container">
-
 
     <div class="menu-header">
 
-
       <div>
-
-        <span class="eyebrow">
-          Cardápio completo
-        </span>
-
+        <span class="eyebrow">Cardápio completo</span>
 
         <h2 class="section-title">
-
           ESCOLHA SEU
           FAVORITO
-
         </h2>
 
-
         <p class="section-subtitle">
-
-          Clique no item e faça
-          seu pedido direto pelo WhatsApp.
-
+          Clique no item e faça seu pedido direto pelo WhatsApp.
         </p>
-
       </div>
-
-
 
       <div class="filters">
-
-        <button
-          class="filter-btn active"
-          data-filter="todos"
-        >
-          Todos
-        </button>
-
-        <button
-          class="filter-btn"
-          data-filter="combo"
-        >
-          Combos
-        </button>
-
-        <button
-          class="filter-btn"
-          data-filter="peixe"
-        >
-          Peixes
-        </button>
-
-        <button
-          class="filter-btn"
-          data-filter="frango"
-        >
-          Frango
-        </button>
-
-        <button
-          class="filter-btn"
-          data-filter="porcao"
-        >
-          Petiscos
-        </button>
-
+        <button class="filter-btn active" data-filter="todos">Todos</button>
+        <button class="filter-btn" data-filter="combo">Combos</button>
+        <button class="filter-btn" data-filter="peixe">Peixes</button>
+        <button class="filter-btn" data-filter="frango">Frango</button>
+        <button class="filter-btn" data-filter="porcao">Petiscos</button>
+        <button class="filter-btn" data-filter="bebida">Bebidas</button>
       </div>
-
 
     </div>
 
-
-
-    <div
-      class="menu-grid"
-      id="menuGrid"
-    ></div>
-
+    <div class="menu-grid" id="menuGrid"></div>
 
   </div>
-
 </section>
 
-
-
-<section
-  class="section"
-  id="destaques"
->
-
+<section class="section" id="destaques">
   <div class="container">
 
-
-    <span class="eyebrow">
-      Destaques
-    </span>
-
+    <span class="eyebrow">Destaques</span>
 
     <h2 class="section-title">
-
       COMBOS PARA
       A RESENHA
-
     </h2>
 
-
     <p class="section-subtitle">
-
-      Algumas das opções mais
-      completas do nosso cardápio.
-
+      Algumas das opções mais completas do nosso cardápio.
     </p>
 
-
-
-    <div
-      class="featured-grid"
-      id="featuredGrid"
-    ></div>
-
+    <div class="featured-grid" id="featuredGrid"></div>
 
   </div>
-
 </section>
 
-
-
-<section
-  class="section"
-  id="delivery"
->
-
+<section class="section" id="delivery">
   <div class="container">
-
 
     <div class="delivery-box">
 
-
       <div class="delivery-left">
 
-
-        <span class="eyebrow">
-
-          📲 Delivery
-
-        </span>
-
+        <span class="eyebrow">📲 Delivery</span>
 
         <h2>
-
           ESCOLHEU?
-
           AGORA É SÓ
           PEDIR.
-
         </h2>
 
-
         <p>
-
-          Escolha o seu prato,
-          clique no botão e fale
-          diretamente com a
-          Digo Petiscaria.
-
-          Rápido, simples e sem
-          complicação.
-
+          Escolha o seu prato ou bebida, clique no botão e fale diretamente com a Digo Petiscaria.
+          Rápido, simples e sem complicação.
         </p>
-
 
         <a
           target="_blank"
           class="btn btn-whatsapp"
           href="https://wa.me/5566992495524?text=Olá!%20Vim%20pelo%20site%20da%20Digo%20Petiscaria%20e%20quero%20fazer%20um%20pedido."
         >
-
           Pedir no WhatsApp
-
         </a>
 
-
         <div class="phone">
-
           (66) 99249-5524
-
         </div>
 
       </div>
-
-
 
       <div class="delivery-info">
 
-
         <div class="info-card">
-
-          <strong>
-
-            📍 Taporah - MT
-
-          </strong>
-
-
-          <span>
-
-            Atendimento local
-            com muito sabor.
-
-          </span>
-
+          <strong>📍 Taporah - MT</strong>
+          <span>Atendimento local com muito sabor.</span>
         </div>
 
-
-
         <div class="info-card">
-
-          <strong>
-
-            🍽️ Cardápio completo
-
-          </strong>
-
-
-          <span>
-
-            Escolha entre peixes,
-            frango, porções e combos.
-
-          </span>
-
+          <strong>🍽️ Cardápio completo</strong>
+          <span>Escolha entre peixes, frango, porções, combos e bebidas.</span>
         </div>
 
-
-
         <div class="info-card">
-
-          <strong>
-
-            📲 Atendimento pelo WhatsApp
-
-          </strong>
-
-
-          <span>
-
-            Clique no item e
-            a mensagem já vai pronta.
-
-          </span>
-
+          <strong>📲 Atendimento pelo WhatsApp</strong>
+          <span>Clique no item e a mensagem já vai pronta.</span>
         </div>
-
 
       </div>
 
     </div>
 
   </div>
-
 </section>
-
 
 </main>
 
-
-
 <footer>
-
   <div class="container footer">
 
-
-    <a
-      href="#inicio"
-      class="brand"
-    >
-
-      <div class="brand-mark">
-
-        🐟
-
-      </div>
-
+    <a href="#inicio" class="brand">
+      <div class="brand-mark">🐟</div>
 
       <div class="brand-text">
-
-        <strong>
-
-          DIGO
-
-        </strong>
-
-        <span>
-
-          PETISCARIA
-
-        </span>
-
+        <strong>DIGO</strong>
+        <span>PETISCARIA</span>
       </div>
-
     </a>
 
-
-
     <div class="footer-links">
-
-      <a href="#inicio">
-        Início
-      </a>
-
-      <a href="#categorias">
-        Categorias
-      </a>
-
-      <a href="#cardapio">
-        Cardápio
-      </a>
-
-      <a href="#destaques">
-        Combos
-      </a>
-
-      <a href="#delivery">
-        Delivery
-      </a>
-
+      <a href="#inicio">Início</a>
+      <a href="#categorias">Categorias</a>
+      <a href="#cardapio">Cardápio</a>
+      <a href="#destaques">Combos</a>
+      <a href="#delivery">Delivery</a>
     </div>
 
-
-
     <div class="copyright">
-
       © 2026 Digo Petiscaria
-
     </div>
 
   </div>
-
 </footer>
-
-
 
 <a
   class="floating-whatsapp"
@@ -2337,1105 +1258,565 @@
   aria-label="WhatsApp"
   href="https://wa.me/5566992495524"
 >
-
   💬
-
 </a>
-
-
 
 <script>
 
-
-const whatsapp =
-  "5566992495524";
-
-
+const whatsapp = "5566992495524";
 
 const menuItems = [
 
-
-{
-  nome:
-  "Combo Digo Top M",
-
-  preco:
-  "R$ 64,90",
-
-  categoria:
-  "combo",
-
-  tipo:
-  "peixe",
-
-  tamanho:
-  "M",
-
-  imagem:
-  "assets/img/combo-digo-top.jpg",
-
-  descricao:
-  "Filé de pintado 250g + ventrecha de tambatinga 250g."
-},
-
-
-{
-  nome:
-  "Combo Digo Top G",
-
-  preco:
-  "R$ 84,90",
-
-  categoria:
-  "combo",
-
-  tipo:
-  "peixe",
-
-  tamanho:
-  "G",
-
-  imagem:
-  "assets/img/combo-digo-top.jpg",
-
-  descricao:
-  "Filé de pintado 400g + ventrecha de tambatinga 400g."
-},
-
-
-{
-  nome:
-  "Batata frita com bacon M",
-
-  preco:
-  "R$ 30,00",
-
-  categoria:
-  "porcao",
-
-  tipo:
-  "porcao",
-
-  tamanho:
-  "M",
-
-  imagem:
-  "assets/img/batata-bacon.jpg",
-
-  descricao:
-  "Batata frita com bacon 250g."
-},
-
-
-{
-  nome:
-  "Batata frita com bacon G",
-
-  preco:
-  "R$ 45,00",
-
-  categoria:
-  "porcao",
-
-  tipo:
-  "porcao",
-
-  tamanho:
-  "G",
-
-  imagem:
-  "assets/img/batata-bacon.jpg",
-
-  descricao:
-  "Batata frita com bacon 400g."
-},
-
-
-{
-  nome:
-  "Calabresa acebolada M",
-
-  preco:
-  "R$ 35,00",
-
-  categoria:
-  "porcao",
-
-  tipo:
-  "porcao",
-
-  tamanho:
-  "M",
-
-  imagem:
-  "assets/img/calabresa.jpg",
-
-  descricao:
-  "Porção de calabresa acebolada 250g."
-},
-
-
-{
-  nome:
-  "Calabresa acebolada G",
-
-  preco:
-  "R$ 50,00",
-
-  categoria:
-  "porcao",
-
-  tipo:
-  "porcao",
-
-  tamanho:
-  "G",
-
-  imagem:
-  "assets/img/calabresa.jpg",
-
-  descricao:
-  "Porção de calabresa acebolada 400g."
-},
-
-
-{
-  nome:
-  "Tulipa de Frango M",
-
-  preco:
-  "R$ 29,90",
-
-  categoria:
-  "frango",
-
-  tipo:
-  "frango",
-
-  tamanho:
-  "M",
-
-  imagem:
-  "assets/img/tulipa-frango.jpg",
-
-  descricao:
-  "Porção de tulipa de frango 250g."
-},
-
-
-{
-  nome:
-  "Tulipa de Frango G",
-
-  preco:
-  "R$ 39,90",
-
-  categoria:
-  "frango",
-
-  tipo:
-  "frango",
-
-  tamanho:
-  "G",
-
-  imagem:
-  "assets/img/tulipa-frango.jpg",
-
-  descricao:
-  "Porção de tulipa de frango 400g."
-},
-
-
-{
-  nome:
-  "Cebola Empanada M",
-
-  preco:
-  "R$ 29,90",
-
-  categoria:
-  "porcao",
-
-  tipo:
-  "porcao",
-
-  tamanho:
-  "M",
-
-  imagem:
-  "assets/img/cebola-empanada.jpg",
-
-  descricao:
-  "Cebola empanada crocante 250g."
-},
-
-
-{
-  nome:
-  "Cebola Empanada G",
-
-  preco:
-  "R$ 39,90",
-
-  categoria:
-  "porcao",
-
-  tipo:
-  "porcao",
-
-  tamanho:
-  "G",
-
-  imagem:
-  "assets/img/cebola-empanada.jpg",
-
-  descricao:
-  "Cebola empanada crocante 400g."
-},
-
-
-{
-  nome:
-  "Combo Boteco G",
-
-  preco:
-  "R$ 59,90",
-
-  categoria:
-  "combo",
-
-  tipo:
-  "porcao",
-
-  tamanho:
-  "800g",
-
-  imagem:
-  "assets/img/combo-boteco.jpg",
-
-  descricao:
-  "Calabresa acebolada 400g + batata frita com bacon 400g."
-},
-
-
-{
-  nome:
-  "Combo Digo Peixe",
-
-  preco:
-  "R$ 79,90",
-
-  categoria:
-  "combo",
-
-  tipo:
-  "peixe",
-
-  tamanho:
-  "500g",
-
-  imagem:
-  "assets/img/combo-digo-peixe.jpg",
-
-  descricao:
-  "Filé de pintado 250g + filé de tambatinga 250g."
-},
-
-
-{
-  nome:
-  "Combo Pescador M",
-
-  preco:
-  "R$ 64,90",
-
-  categoria:
-  "combo",
-
-  tipo:
-  "peixe",
-
-  tamanho:
-  "500g",
-
-  imagem:
-  "assets/img/combo-pescador.jpg",
-
-  descricao:
-  "Costelinha de tambatinga 250g + batata frita com bacon 250g."
-},
-
-
-{
-  nome:
-  "Combo Pescador G",
-
-  preco:
-  "R$ 89,90",
-
-  categoria:
-  "combo",
-
-  tipo:
-  "peixe",
-
-  tamanho:
-  "800g",
-
-  imagem:
-  "assets/img/combo-pescador.jpg",
-
-  descricao:
-  "Costelinha de tambatinga 400g + batata frita com bacon 400g."
-},
-
-
-{
-  nome:
-  "Combo Frango M",
-
-  preco:
-  "R$ 64,90",
-
-  categoria:
-  "combo",
-
-  tipo:
-  "frango",
-
-  tamanho:
-  "800g",
-
-  imagem:
-  "assets/img/combo-frango.jpg",
-
-  descricao:
-  "Filé de frango 250g + tulipa 250g + batata frita 300g + refrigerante 1L."
-},
-
-
-{
-  nome:
-  "Combo Frango G",
-
-  preco:
-  "R$ 89,90",
-
-  categoria:
-  "combo",
-
-  tipo:
-  "frango",
-
-  tamanho:
-  "1,3kg",
-
-  imagem:
-  "assets/img/combo-frango.jpg",
-
-  descricao:
-  "Filé de frango 400g + tulipa 400g + batata frita 500g + refrigerante 1L."
-},
-
-
-{
-  nome:
-  "Combo Petisqueiro M",
-
-  preco:
-  "R$ 89,90",
-
-  categoria:
-  "combo",
-
-  tipo:
-  "misto",
-
-  tamanho:
-  "850g",
-
-  imagem:
-  "assets/img/combo-petisqueiro.jpg",
-
-  descricao:
-  "Tambatinga 150g + tulipa 200g + cebola 150g + batata com bacon 350g + refrigerante."
-},
-
-
-{
-  nome:
-  "Combo Petisqueiro G",
-
-  preco:
-  "R$ 109,90",
-
-  categoria:
-  "combo",
-
-  tipo:
-  "misto",
-
-  tamanho:
-  "1,4kg",
-
-  imagem:
-  "assets/img/combo-petisqueiro.jpg",
-
-  descricao:
-  "Tambatinga 250g + tulipa 350g + cebola 250g + batata com bacon 550g + refrigerante."
-},
-
-
-{
-  nome:
-  "Combo Tambatinga M",
-
-  preco:
-  "R$ 109,90",
-
-  categoria:
-  "combo",
-
-  tipo:
-  "peixe",
-
-  tamanho:
-  "850g",
-
-  imagem:
-  "assets/img/combo-tambatinga.jpg",
-
-  descricao:
-  "Filé de tambatinga 400g + batata 300g + cebola empanada 150g + refrigerante."
-},
-
-
-{
-  nome:
-  "Combo Tambatinga G",
-
-  preco:
-  "R$ 134,90",
-
-  categoria:
-  "combo",
-
-  tipo:
-  "peixe",
-
-  tamanho:
-  "1,4kg",
-
-  imagem:
-  "assets/img/combo-tambatinga.jpg",
-
-  descricao:
-  "Filé de tambatinga 700g + batata 500g + cebola empanada 200g + refrigerante."
-},
-
-
-{
-  nome:
-  "Combo Frango e Peixe M",
-
-  preco:
-  "R$ 69,90",
-
-  categoria:
-  "combo",
-
-  tipo:
-  "misto",
-
-  tamanho:
-  "500g",
-
-  imagem:
-  "assets/img/combo-frango-peixe.jpg",
-
-  descricao:
-  "Filé de tilápia 250g + tulipa de frango 250g."
-},
-
-
-{
-  nome:
-  "Combo Frango e Peixe G",
-
-  preco:
-  "R$ 89,90",
-
-  categoria:
-  "combo",
-
-  tipo:
-  "misto",
-
-  tamanho:
-  "800g",
-
-  imagem:
-  "assets/img/combo-frango-peixe.jpg",
-
-  descricao:
-  "Filé de tilápia 400g + tulipa de frango 400g."
-},
-
-
-{
-  nome:
-  "Combo Digo Mix M",
-
-  preco:
-  "R$ 99,90",
-
-  categoria:
-  "combo",
-
-  tipo:
-  "misto",
-
-  tamanho:
-  "1kg",
-
-  imagem:
-  "assets/img/combo-digo-mix.jpg",
-
-  descricao:
-  "Tambatinga + tilápia + frango + tulipa + batata com bacon + refrigerante."
-},
-
-
-{
-  nome:
-  "Combo Digo Mix G",
-
-  preco:
-  "R$ 129,90",
-
-  categoria:
-  "combo",
-
-  tipo:
-  "misto",
-
-  tamanho:
-  "1,7kg",
-
-  imagem:
-  "assets/img/combo-digo-mix.jpg",
-
-  descricao:
-  "Tambatinga + tilápia + frango + tulipa + batata com bacon + refrigerante."
-},
-
-
-{
-  nome:
-  "Combo Peixe Mix",
-
-  preco:
-  "R$ 64,90",
-
-  categoria:
-  "combo",
-
-  tipo:
-  "peixe",
-
-  tamanho:
-  "750g",
-
-  imagem:
-  "assets/img/combo-peixe-mix.jpg",
-
-  descricao:
-  "Ventrecha de tambatinga 350g + batata frita 250g + cebola empanada 150g."
-},
-
-
-{
-  nome:
-  "Combo Resenha Leve",
-
-  preco:
-  "R$ 59,90",
-
-  categoria:
-  "combo",
-
-  tipo:
-  "peixe",
-
-  tamanho:
-  "Único",
-
-  imagem:
-  "assets/img/combo-resenha.jpg",
-
-  descricao:
-  "Filé de pintado 250g + batata frita 200g + cebola empanada 100g."
-},
-
-
-{
-  nome:
-  "Combo Tudo Nosso",
-
-  preco:
-  "R$ 69,90",
-
-  categoria:
-  "combo",
-
-  tipo:
-  "peixe",
-
-  tamanho:
-  "Único",
-
-  imagem:
-  "assets/img/combo-tudo-nosso.jpg",
-
-  descricao:
-  "Lambari 200g + filé de pintado 200g + batata frita 250g."
-}
-
+  {
+    nome:"Combo Digo Top M",
+    preco:"R$ 64,90",
+    categoria:"combo",
+    tipo:"peixe",
+    tamanho:"M",
+    imagem:"assets/img/combo-digo-top.jpg",
+    descricao:"Filé de pintado 250g + ventrecha de tambatinga 250g."
+  },
+
+  {
+    nome:"Combo Digo Top G",
+    preco:"R$ 84,90",
+    categoria:"combo",
+    tipo:"peixe",
+    tamanho:"G",
+    imagem:"assets/img/combo-digo-top.jpg",
+    descricao:"Filé de pintado 400g + ventrecha de tambatinga 400g."
+  },
+
+  {
+    nome:"Batata frita com bacon M",
+    preco:"R$ 30,00",
+    categoria:"porcao",
+    tipo:"porcao",
+    tamanho:"M",
+    imagem:"assets/img/batata-bacon.jpg",
+    descricao:"Batata frita com bacon 250g."
+  },
+
+  {
+    nome:"Batata frita com bacon G",
+    preco:"R$ 45,00",
+    categoria:"porcao",
+    tipo:"porcao",
+    tamanho:"G",
+    imagem:"assets/img/batata-bacon.jpg",
+    descricao:"Batata frita com bacon 400g."
+  },
+
+  {
+    nome:"Calabresa acebolada M",
+    preco:"R$ 35,00",
+    categoria:"porcao",
+    tipo:"porcao",
+    tamanho:"M",
+    imagem:"assets/img/calabresa.jpg",
+    descricao:"Porção de calabresa acebolada 250g."
+  },
+
+  {
+    nome:"Calabresa acebolada G",
+    preco:"R$ 50,00",
+    categoria:"porcao",
+    tipo:"porcao",
+    tamanho:"G",
+    imagem:"assets/img/calabresa.jpg",
+    descricao:"Porção de calabresa acebolada 400g."
+  },
+
+  {
+    nome:"Tulipa de Frango M",
+    preco:"R$ 29,90",
+    categoria:"frango",
+    tipo:"frango",
+    tamanho:"M",
+    imagem:"assets/img/tulipa-frango.jpg",
+    descricao:"Porção de tulipa de frango 250g."
+  },
+
+  {
+    nome:"Tulipa de Frango G",
+    preco:"R$ 39,90",
+    categoria:"frango",
+    tipo:"frango",
+    tamanho:"G",
+    imagem:"assets/img/tulipa-frango.jpg",
+    descricao:"Porção de tulipa de frango 400g."
+  },
+
+  {
+    nome:"Cebola Empanada M",
+    preco:"R$ 29,90",
+    categoria:"porcao",
+    tipo:"porcao",
+    tamanho:"M",
+    imagem:"assets/img/cebola-empanada.jpg",
+    descricao:"Cebola empanada crocante 250g."
+  },
+
+  {
+    nome:"Cebola Empanada G",
+    preco:"R$ 39,90",
+    categoria:"porcao",
+    tipo:"porcao",
+    tamanho:"G",
+    imagem:"assets/img/cebola-empanada.jpg",
+    descricao:"Cebola empanada crocante 400g."
+  },
+
+  {
+    nome:"Combo Boteco G",
+    preco:"R$ 59,90",
+    categoria:"combo",
+    tipo:"porcao",
+    tamanho:"800g",
+    imagem:"assets/img/combo-boteco.jpg",
+    descricao:"Calabresa acebolada 400g + batata frita com bacon 400g."
+  },
+
+  {
+    nome:"Combo Digo Peixe",
+    preco:"R$ 79,90",
+    categoria:"combo",
+    tipo:"peixe",
+    tamanho:"500g",
+    imagem:"assets/img/combo-digo-peixe.jpg",
+    descricao:"Filé de pintado 250g + filé de tambatinga 250g."
+  },
+
+  {
+    nome:"Combo Pescador M",
+    preco:"R$ 64,90",
+    categoria:"combo",
+    tipo:"peixe",
+    tamanho:"500g",
+    imagem:"assets/img/combo-pescador.jpg",
+    descricao:"Costelinha de tambatinga 250g + batata frita com bacon 250g."
+  },
+
+  {
+    nome:"Combo Pescador G",
+    preco:"R$ 89,90",
+    categoria:"combo",
+    tipo:"peixe",
+    tamanho:"800g",
+    imagem:"assets/img/combo-pescador.jpg",
+    descricao:"Costelinha de tambatinga 400g + batata frita com bacon 400g."
+  },
+
+  {
+    nome:"Combo Frango M",
+    preco:"R$ 64,90",
+    categoria:"combo",
+    tipo:"frango",
+    tamanho:"800g",
+    imagem:"assets/img/combo-frango.jpg",
+    descricao:"Filé de frango 250g + tulipa 250g + batata frita 300g + refrigerante 1L."
+  },
+
+  {
+    nome:"Combo Frango G",
+    preco:"R$ 89,90",
+    categoria:"combo",
+    tipo:"frango",
+    tamanho:"1,3kg",
+    imagem:"assets/img/combo-frango.jpg",
+    descricao:"Filé de frango 400g + tulipa 400g + batata frita 500g + refrigerante 1L."
+  },
+
+  {
+    nome:"Combo Petisqueiro M",
+    preco:"R$ 89,90",
+    categoria:"combo",
+    tipo:"misto",
+    tamanho:"850g",
+    imagem:"assets/img/combo-petisqueiro.jpg",
+    descricao:"Tambatinga 150g + tulipa 200g + cebola 150g + batata com bacon 350g + refrigerante."
+  },
+
+  {
+    nome:"Combo Petisqueiro G",
+    preco:"R$ 109,90",
+    categoria:"combo",
+    tipo:"misto",
+    tamanho:"1,4kg",
+    imagem:"assets/img/combo-petisqueiro.jpg",
+    descricao:"Tambatinga 250g + tulipa 350g + cebola 250g + batata com bacon 550g + refrigerante."
+  },
+
+  {
+    nome:"Combo Tambatinga M",
+    preco:"R$ 109,90",
+    categoria:"combo",
+    tipo:"peixe",
+    tamanho:"850g",
+    imagem:"assets/img/combo-tambatinga.jpg",
+    descricao:"Filé de tambatinga 400g + batata 300g + cebola empanada 150g + refrigerante."
+  },
+
+  {
+    nome:"Combo Tambatinga G",
+    preco:"R$ 134,90",
+    categoria:"combo",
+    tipo:"peixe",
+    tamanho:"1,4kg",
+    imagem:"assets/img/combo-tambatinga.jpg",
+    descricao:"Filé de tambatinga 700g + batata 500g + cebola empanada 200g + refrigerante."
+  },
+
+  {
+    nome:"Combo Frango e Peixe M",
+    preco:"R$ 69,90",
+    categoria:"combo",
+    tipo:"misto",
+    tamanho:"500g",
+    imagem:"assets/img/combo-frango-peixe.jpg",
+    descricao:"Filé de tilápia 250g + tulipa de frango 250g."
+  },
+
+  {
+    nome:"Combo Frango e Peixe G",
+    preco:"R$ 89,90",
+    categoria:"combo",
+    tipo:"misto",
+    tamanho:"800g",
+    imagem:"assets/img/combo-frango-peixe.jpg",
+    descricao:"Filé de tilápia 400g + tulipa de frango 400g."
+  },
+
+  {
+    nome:"Combo Digo Mix M",
+    preco:"R$ 99,90",
+    categoria:"combo",
+    tipo:"misto",
+    tamanho:"1kg",
+    imagem:"assets/img/combo-digo-mix.jpg",
+    descricao:"Tambatinga + tilápia + frango + tulipa + batata com bacon + refrigerante."
+  },
+
+  {
+    nome:"Combo Digo Mix G",
+    preco:"R$ 129,90",
+    categoria:"combo",
+    tipo:"misto",
+    tamanho:"1,7kg",
+    imagem:"assets/img/combo-digo-mix.jpg",
+    descricao:"Tambatinga + tilápia + frango + tulipa + batata com bacon + refrigerante."
+  },
+
+  {
+    nome:"Combo Peixe Mix",
+    preco:"R$ 64,90",
+    categoria:"combo",
+    tipo:"peixe",
+    tamanho:"750g",
+    imagem:"assets/img/combo-peixe-mix.jpg",
+    descricao:"Ventrecha de tambatinga 350g + batata frita 250g + cebola empanada 150g."
+  },
+
+  {
+    nome:"Combo Resenha Leve",
+    preco:"R$ 59,90",
+    categoria:"combo",
+    tipo:"peixe",
+    tamanho:"Único",
+    imagem:"assets/img/combo-resenha.jpg",
+    descricao:"Filé de pintado 250g + batata frita 200g + cebola empanada 100g."
+  },
+
+  {
+    nome:"Combo Tudo Nosso",
+    preco:"R$ 69,90",
+    categoria:"combo",
+    tipo:"peixe",
+    tamanho:"Único",
+    imagem:"assets/img/combo-tudo-nosso.jpg",
+    descricao:"Lambari 200g + filé de pintado 200g + batata frita 250g."
+  },
+
+  /* BEBIDAS */
+
+  {
+    nome:"Guaraná 1 L",
+    preco:"R$ 8,00",
+    categoria:"bebida",
+    tipo:"bebida",
+    tamanho:"1 L",
+    imagem:"assets/img/guarana-1l.jpg",
+    descricao:"Refrigerante Guaraná Antarctica 1 litro."
+  },
+
+  {
+    nome:"Guaraná Zero Açúcar 1 L",
+    preco:"R$ 8,00",
+    categoria:"bebida",
+    tipo:"bebida",
+    tamanho:"1 L",
+    imagem:"assets/img/guarana-zero-1l.jpg",
+    descricao:"Refrigerante Guaraná Antarctica zero açúcar 1 litro."
+  },
+
+  {
+    nome:"Coca-Cola 1,5 L",
+    preco:"R$ 12,00",
+    categoria:"bebida",
+    tipo:"bebida",
+    tamanho:"1,5 L",
+    imagem:"assets/img/coca-cola-1-5l.jpg",
+    descricao:"Refrigerante Coca-Cola original 1,5 litro."
+  },
+
+  {
+    nome:"Coca-Cola Zero Açúcar 1,5 L",
+    preco:"R$ 12,00",
+    categoria:"bebida",
+    tipo:"bebida",
+    tamanho:"1,5 L",
+    imagem:"assets/img/coca-cola-zero-1-5l.jpg",
+    descricao:"Refrigerante Coca-Cola zero açúcar 1,5 litro."
+  },
+
+  {
+    nome:"Fanta Laranja 1,5 L",
+    preco:"R$ 12,00",
+    categoria:"bebida",
+    tipo:"bebida",
+    tamanho:"1,5 L",
+    imagem:"assets/img/fanta-laranja-1-5l.jpg",
+    descricao:"Refrigerante Fanta Laranja 1,5 litro."
+  }
 
 ];
-
-
 
 const featuredNames = [
-
   "Combo Petisqueiro G",
-
   "Combo Tambatinga G",
-
   "Combo Frango G",
-
   "Combo Digo Mix G"
-
 ];
 
-
-
 function whatsLink(item){
-
   const mensagem =
-    `Olá! Vim pelo site da Di3go Petiscaria e quero pedir: ${item.nome} - ${item.preco}.`;
+    `Olá! Vim pelo site da Digo Petiscaria e quero pedir: ${item.nome} - ${item.preco}.`;
 
-  return(
-    `https://wa.me/${whatsapp}?text=${encodeURIComponent(mensagem)}`
-  );
-
+  return `https://wa.me/${whatsapp}?text=${encodeURIComponent(mensagem)}`;
 }
 
-
-
 function categoryName(item){
+  if(item.categoria === "bebida"){
+    return "Bebida";
+  }
 
-  if(
-    item.categoria ===
-    "porcao"
-  ){
+  if(item.categoria === "porcao"){
     return "Petisco";
   }
 
-
-  if(
-    item.tipo ===
-    "peixe"
-  ){
+  if(item.tipo === "peixe"){
     return "Peixe";
   }
 
-
-  if(
-    item.tipo ===
-    "frango"
-  ){
+  if(item.tipo === "frango"){
     return "Frango";
   }
 
-
   return "Combo";
-
 }
 
+const menuGrid = document.getElementById("menuGrid");
 
-
-const menuGrid =
-  document.getElementById(
-    "menuGrid"
-  );
-
-
-
-function renderMenu(
-  filtro = "todos"
-){
-
+function renderMenu(filtro = "todos"){
   menuGrid.innerHTML = "";
 
+  const items = menuItems.filter(item => {
 
-  let items =
-    menuItems.filter(
-      item => {
-
-        if(
-          filtro === "todos"
-        ){
-          return true;
-        }
-
-
-        if(
-          filtro === "combo"
-        ){
-          return(
-            item.categoria ===
-            "combo"
-          );
-        }
-
-
-        if(
-          filtro === "peixe"
-        ){
-          return(
-            item.tipo ===
-            "peixe"
-          );
-        }
-
-
-        if(
-          filtro === "frango"
-        ){
-          return(
-            item.tipo ===
-            "frango"
-          );
-        }
-
-
-        if(
-          filtro === "porcao"
-        ){
-          return(
-            item.categoria ===
-            "porcao"
-          );
-        }
-
-
-        return true;
-
-      }
-    );
-
-
-  items.forEach(
-    item => {
-
-      const card =
-        document.createElement(
-          "article"
-        );
-
-
-      card.className =
-        "menu-card";
-
-
-      card.innerHTML = `
-
-        <div class="menu-cover">
-
-          <img
-            src="${item.imagem}"
-            alt="${item.nome}"
-            loading="lazy"
-          >
-
-          <div class="badges">
-
-            <span class="pill pill-category">
-
-              ${categoryName(item)}
-
-            </span>
-
-
-            <span class="pill pill-size">
-
-              ${item.tamanho}
-
-            </span>
-
-          </div>
-
-        </div>
-
-
-        <div class="menu-body">
-
-          <h3 class="menu-title">
-
-            ${item.nome}
-
-          </h3>
-
-
-          <div class="menu-price">
-
-            ${item.preco}
-
-          </div>
-
-
-          <p class="menu-description">
-
-            ${item.descricao}
-
-          </p>
-
-
-          <div class="menu-footer">
-
-            <a
-              class="btn btn-whatsapp"
-              target="_blank"
-              href="${whatsLink(item)}"
-            >
-
-              Pedir no WhatsApp
-
-            </a>
-
-          </div>
-
-        </div>
-
-      `;
-
-
-      menuGrid.appendChild(
-        card
-      );
-
+    if(filtro === "todos"){
+      return true;
     }
-  );
 
-}
+    if(filtro === "combo"){
+      return item.categoria === "combo";
+    }
 
+    if(filtro === "peixe"){
+      return item.tipo === "peixe";
+    }
 
+    if(filtro === "frango"){
+      return item.tipo === "frango";
+    }
 
-document
-.querySelectorAll(
-  ".filter-btn"
-)
-.forEach(
-  button => {
+    if(filtro === "porcao"){
+      return item.categoria === "porcao";
+    }
 
-    button.addEventListener(
-      "click",
-      () => {
+    if(filtro === "bebida"){
+      return item.categoria === "bebida";
+    }
 
-        document
-        .querySelectorAll(
-          ".filter-btn"
-        )
-        .forEach(
-          btn =>
-          btn.classList.remove(
-            "active"
-          )
-        );
+    return true;
+  });
 
+  items.forEach(item => {
 
-        button
-        .classList.add(
-          "active"
-        );
+    const card = document.createElement("article");
+    card.className = "menu-card";
 
+    card.innerHTML = `
+      <div class="menu-cover">
 
-        renderMenu(
-          button.dataset.filter
-        );
+        <img
+          src="${item.imagem}"
+          alt="${item.nome}"
+          loading="lazy"
+        >
 
-      }
-    );
+        <div class="badges">
 
-  }
-);
+          <span class="pill pill-category">
+            ${categoryName(item)}
+          </span>
 
-
-
-const featuredGrid =
-  document.getElementById(
-    "featuredGrid"
-  );
-
-
-
-function renderFeatured(){
-
-  featuredGrid.innerHTML =
-    "";
-
-
-  const items =
-    menuItems.filter(
-      item =>
-      featuredNames.includes(
-        item.nome
-      )
-    );
-
-
-  items.forEach(
-    item => {
-
-      const card =
-        document.createElement(
-          "article"
-        );
-
-
-      card.className =
-        "featured-card";
-
-
-      card.innerHTML = `
-
-        <div class="featured-image">
-
-          <img
-            src="${item.imagem}"
-            alt="${item.nome}"
-            loading="lazy"
-          >
-
-          <span class="featured-label">
-
-            Destaque da casa
-
+          <span class="pill pill-size">
+            ${item.tamanho}
           </span>
 
         </div>
 
+      </div>
 
-        <div class="featured-body">
+      <div class="menu-body">
 
-          <h3>
+        <h3 class="menu-title">
+          ${item.nome}
+        </h3>
 
-            ${item.nome}
+        <div class="menu-price">
+          ${item.preco}
+        </div>
 
-          </h3>
+        <p class="menu-description">
+          ${item.descricao}
+        </p>
 
-
-          <p>
-
-            ${item.descricao}
-
-          </p>
-
-
-          <div class="featured-price">
-
-            ${item.preco}
-
-          </div>
-
+        <div class="menu-footer">
 
           <a
+            class="btn btn-whatsapp"
             target="_blank"
-            class="btn btn-primary"
             href="${whatsLink(item)}"
           >
-
-            Quero esse
-
+            Pedir no WhatsApp
           </a>
 
         </div>
 
-      `;
+      </div>
+    `;
 
-
-      featuredGrid.appendChild(
-        card
-      );
-
-    }
-  );
-
+    menuGrid.appendChild(card);
+  });
 }
 
+document
+.querySelectorAll(".filter-btn")
+.forEach(button => {
 
+  button.addEventListener("click", () => {
 
-const menuBtn =
-  document.getElementById(
-    "menuBtn"
-  );
+    document
+    .querySelectorAll(".filter-btn")
+    .forEach(btn => btn.classList.remove("active"));
 
+    button.classList.add("active");
 
-const mobileNav =
-  document.getElementById(
-    "mobileNav"
-  );
+    renderMenu(button.dataset.filter);
+  });
 
+});
 
-menuBtn.addEventListener(
-  "click",
-  () => {
+const featuredGrid = document.getElementById("featuredGrid");
 
-    mobileNav
-    .classList
-    .toggle(
-      "open"
+function renderFeatured(){
+  featuredGrid.innerHTML = "";
+
+  const items =
+    menuItems.filter(
+      item => featuredNames.includes(item.nome)
     );
 
-  }
-);
+  items.forEach(item => {
 
+    const card = document.createElement("article");
+    card.className = "featured-card";
 
+    card.innerHTML = `
+      <div class="featured-image">
+
+        <img
+          src="${item.imagem}"
+          alt="${item.nome}"
+          loading="lazy"
+        >
+
+        <span class="featured-label">
+          Destaque da casa
+        </span>
+
+      </div>
+
+      <div class="featured-body">
+
+        <h3>
+          ${item.nome}
+        </h3>
+
+        <p>
+          ${item.descricao}
+        </p>
+
+        <div class="featured-price">
+          ${item.preco}
+        </div>
+
+        <a
+          target="_blank"
+          class="btn btn-primary"
+          href="${whatsLink(item)}"
+        >
+          Quero esse
+        </a>
+
+      </div>
+    `;
+
+    featuredGrid.appendChild(card);
+  });
+}
+
+const menuBtn = document.getElementById("menuBtn");
+const mobileNav = document.getElementById("mobileNav");
+
+menuBtn.addEventListener("click", () => {
+  mobileNav.classList.toggle("open");
+});
 
 document
-.querySelectorAll(
-  ".mobile-nav a"
-)
-.forEach(
-  link => {
+.querySelectorAll(".mobile-nav a")
+.forEach(link => {
 
-    link.addEventListener(
-      "click",
-      () => {
+  link.addEventListener("click", () => {
+    mobileNav.classList.remove("open");
+  });
 
-        mobileNav
-        .classList
-        .remove(
-          "open"
-        );
-
-      }
-    );
-
-  }
-);
-
-
+});
 
 renderMenu();
-
 renderFeatured();
 
-
 </script>
-
 
 </body>
 </html>
